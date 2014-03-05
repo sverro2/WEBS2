@@ -5,6 +5,8 @@ $query = "SELECT a.id, a.lable, a.link, Deriv1.Count FROM Menu a
         LEFT OUTER JOIN (SELECT parent, COUNT(*) AS Count FROM Menu GROUP BY parent) Deriv1 
         ON a.id = Deriv1.parent";
 
+ echo 'This is WIP';
+ 
 $menu_item_array = $database_connection->get_array_from_query($query);
 var_dump($menu_item_array);
 
