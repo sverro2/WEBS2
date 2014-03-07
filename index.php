@@ -10,15 +10,40 @@ and open the template in the editor.
         <title></title>
         <link href="css/std.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">
-            //stuff for the menu (jquery)
+            
+        </script>
+        
+        <script type="text/javascript">
+        $(document).ready(
+            /* This is the function that will get executed after the DOM is fully loaded */
+            function () {
+                
+                /* Next part of code handles hovering effect and submenu appearing */
+                $('.nav li').hover(
+                    function () {
+                        
+                        $('ul', this).slideDown();
+                    },
+                    function () {
+                        $('ul', this).slideUp();
+                    }
+                );
+            }
+            );
         </script>
     </head>
     <body>
         <div class="main_container">
-            <header class="maindiv">header</header>
+            <header class="maindiv"></header>
             <menu>
-                menu
-                <?php include 'inc/menu.inc.php'; ?>
+                <div class="right_alignment">
+                    <?php 
+                        include 'class/menu.class.php'; 
+                        
+                        $menu_creator = new Structure();
+                        $menu_creator->display_menu();
+                    ?>
+                </div>
             </menu>
             
             <article class="product_container">Artikel</article>

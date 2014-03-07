@@ -5,12 +5,12 @@
  *
  * @author sven
  */
-class database {
+class Database {
     private $my_sqli_connect;
     private $result;
     
     function __construct($schema) {
-        $mysqli = new mysqli("mysql03.totaalholding.nl", "seventho_school", "avans123", $schema);
+        $mysqli = new mysqli("databases.aii.avans.nl", "sbrettsc", "sven", $schema);
         
         /* check connection */
         if (mysqli_connect_errno()) {
@@ -40,8 +40,8 @@ class database {
         {
             $aResult[] = $r;
         }
-
-        print_r($aResult);
+        
+        return $aResult;
     }
     
     public function check_login($username, $password){
