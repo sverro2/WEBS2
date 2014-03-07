@@ -59,73 +59,99 @@ table {
     font-family: Ubuntu, Calibri, "Lucida Grande";
     min-width: 768px;
     min-height: 800px;
+    box-shadow:  silver 0px 0px 4px 4px;
     width: 80%;
     margin: 100px auto 120px auto;
-    border: gray solid 3px;
+    border: gray solid 1px;
     border-radius: 12px;
 }
 
+header{
+    background-image: url('../data/header_pic.jpg');
+    background-repeat: no-repeat;
+    background-position: 10% top;
+    height: 205px;
+    width: 100%;
+}
+
 menu {
-    padding-left: 30px;
+    
+    height:30px;
+    background: #333;
     border: gray solid;
     border-width: 3px 0px 3px 0px;
-    list-style: none;
 }
 .product_container {
     padding: 30px;
 }
 
+.right_alignment{
+    width: 550px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
 footer {
-    border-top: gray solid 3px;
+    border-top: gray solid 1px;
     min-height: 200px;
     position: relative;
+    box-shadow:  silver 0px 0px 4px 4px;
 }
 
 /* css to style the menu */
 
-menu li {
-    float: left;
-    width: 160px;
+.nav {
+    
+    list-style: none;
     position: relative;
-}
-
-menu li a {
+    margin: auto;
+    width: 100%;
     background: #333;
-    color: #fff;
-    display: block;
-    padding: 7px 8px;
-    text-decoration: none;
-    border-top: 1px solid #069;
+    list-style: none;
 }
 
-menu li a:hover {
-    color: #069;
+.nav li {
+	float: left;
+	width: 160px;
+	position: relative;
+}
+
+.nav li a {
+	background: #333;
+	color: #fff;
+	display: block;
+	padding: 7px 8px;
+	text-decoration: none;
+        border-left: 1px solid gray;
+        border-bottom: 1px solid gray;
+}
+
+.nav li a:hover {
+	color: #333;
+        background-color: white;
 }
 
 /*=== submenu ===*/
 
-menu ul {
-    display: none;
-    position: absolute;
-    margin-left: 0px;
-    list-style: none;
-    padding: 0px;
+.nav ul {
+	display: none;
+	position: absolute;
+	margin-left: 0px;
+	list-style: none;
+	padding: 0px;
 }
 
-menu ul li {
-    width: 160px;
-    float: left;
+.nav ul a {
+	display: block;
+	height: 15px;
+	padding: 7px 8px;
+	color: #fff;
+	text-decoration: none;
+        
 }
 
-menu ul a {
-    display: block;
-    height: 15px;
-    padding: 7px 8px;
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 1px solid #222;
-}
-
-menuv ul li a:hover {
-    color: #069;
+.nav ul li a{
+        border-right: gray solid 1px;
+        border-left: gray solid 1px;
+        border-bottom: gray solid 1px;
 }
