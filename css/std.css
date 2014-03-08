@@ -86,8 +86,13 @@ menu {
     padding: 30px;
 }
 
+<<<<<<< .merge_file_a10100
 .center_alignment{
     width: 1024px;
+=======
+.right_alignment{
+    width: 645px;
+>>>>>>> .merge_file_a14552
     margin-left: auto;
     margin-right: auto;
 }

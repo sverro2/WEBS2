@@ -31,6 +31,7 @@ class Database {
         if( ! $this->result )
         {
             echo $this->my_sqli_connect->connect_error;
+            echo 'An error occured when processing an importend query. Exited...';
             exit;
         }
 
@@ -76,7 +77,7 @@ class Database {
     }
     
     public function __destruct() {
-        $this->result->close();
+        //$this->result->close();
         $this->my_sqli_connect->close();
     }
 }
