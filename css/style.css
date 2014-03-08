@@ -31,3 +31,62 @@
 #cat_container .categoryimage img{
 	position:relative;
 }
+
+.product img{
+	width:300px;
+	height:300px;
+	float:left;
+	border: 1px gray solid;
+	margin-right:20px;
+}
+.product #details{
+	text-align: left;
+	width:700px;
+	float:right;
+}
+.product #details h1{
+	font-size:20px;
+	font-weight:bold;
+	margin-bottom:3px;
+}
+.product #details h2{
+	font-size:15px;
+	font-weight:bold;
+	margin-bottom:3px;
+}
+
+
+.product #details #availability{
+	padding-top:0px;
+}
+.product #details #availability #nostock{
+	color:red;
+}
+.product #details #availability #limitstock{
+	color:#FF6600;
+}
+.product #details #availability #fullstock{
+	color:green;
+}
+.product #details #price{
+	margin-bottom:5px;
+	padding-top:5px;
+	border-top:1px gray solid;
+}
+
+.product #details h3{
+	font-size:15px;
+	font-weight:bold;
+}
+
+.product #details p{
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-bottom:5px;
+	border-bottom:1px gray solid;
+}
+
+.product #details ul{
+	list-style-image: url('../img/aperturebullet.png');
+	margin-left:30px;
+}

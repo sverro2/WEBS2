@@ -19,9 +19,9 @@ class Structure{
         foreach ($menu_array as $row){
 
             if($row['child_label'] == NULL){
-                echo "\t\t\t<li><a href='" . $row['link'] . "'>" . $row['label'] . "</a></li>" . PHP_EOL;
+                echo "\t\t\t<li><a href='#' id='" . $row['link'] . "'>" . $row['label'] . "</a></li>" . PHP_EOL;
             }elseif($previous_menu != $row['label']){
-                echo '<li>';
+                echo "<li id='" . $row['link'] . "''>";
                 $this->display_children($menu_array, $row['label']);
                 echo '</li>';
 

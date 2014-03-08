@@ -6,9 +6,8 @@
         <title></title>
         <link href="css/std.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">
-            
-        </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="js/main.js"></script>
         
         <script type="text/javascript">
         $(document).ready(
@@ -45,20 +44,7 @@
             
             <!--<article class="product_container">Artikel</article> -->
             <div id="content">
-                <div id="cat_container">
-                    <div class="categoryimage">
-                        <h1>Portal Guns</h1>
-                        <img src="img/portalguncategory.png">
-                    </div>
-                    <div class="categoryimage">
-                        <h1>Turrets</h1>
-                        <img src="img/turretcategory.png">
-                    </div>
-                    <div class="categoryimage">
-                        <h1>Misc</h1>
-                        <img src="img/misccategory.png">
-                    </div>
-                </div>
+                <?php include 'pages/home.php' ?>
             </div>
         </div>
         

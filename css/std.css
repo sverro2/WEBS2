@@ -70,9 +70,10 @@ header{
     background-image: url('../img/header_pic.jpg');
     background-size:375px 150px;
     background-repeat: no-repeat;
-    background-position: 10% top;
     height: 150px;
-    width: 100%;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 menu {
@@ -86,13 +87,13 @@ menu {
     padding: 30px;
 }
 
-<<<<<<< .merge_file_a10100
 .center_alignment{
     width: 1024px;
-=======
+    margin-left:auto;
+    margin-right:auto;
+}
 .right_alignment{
     width: 645px;
->>>>>>> .merge_file_a14552
     margin-left: auto;
     margin-right: auto;
 }
