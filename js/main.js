@@ -14,6 +14,19 @@ $(document).ready(
             }
         );
 
+        $('#content').on('mouseover', '.mediaimg', function() {
+            var url = $(this).data('url');
+            $('#video').remove();
+            $('#mainmedia').html("<img id='mainimg' src='" + url + "'>");
+        });
+
+        $('#content').on('mouseover', '.mediavid', function() {
+            var url = $(this).data('url');
+            console.log('vid');
+            $('#mainimg').remove();
+            $('#mainmedia').html('<iframe width="300" height="300" id="video" src="//www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>');
+        });
+
         //test code
 		$('#about').click(function(){
 			$('#content').empty();
