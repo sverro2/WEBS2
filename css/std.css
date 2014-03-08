@@ -59,18 +59,19 @@ table {
     font-family: Ubuntu, Calibri, "Lucida Grande";
     min-width: 768px;
     min-height: 800px;
-    box-shadow:  silver 0px 0px 4px 4px;
+    /*box-shadow:  silver 0px 0px 4px 4px;
     width: 80%;
     margin: 100px auto 120px auto;
     border: gray solid 1px;
-    border-radius: 12px;
+    border-radius: 12px;*/
 }
 
 header{
-    background-image: url('../data/header_pic.jpg');
+    background-image: url('../img/header_pic.jpg');
+    background-size:375px 150px;
     background-repeat: no-repeat;
     background-position: 10% top;
-    height: 205px;
+    height: 150px;
     width: 100%;
 }
 
@@ -85,17 +86,17 @@ menu {
     padding: 30px;
 }
 
-.right_alignment{
-    width: 550px;
+.center_alignment{
+    width: 1024px;
     margin-left: auto;
-    margin-right: 0;
+    margin-right: auto;
 }
 
 footer {
     border-top: gray solid 1px;
     min-height: 200px;
     position: relative;
-    box-shadow:  silver 0px 0px 4px 4px;
+    /*box-shadow:  silver 0px 0px 4px 4px;*/
 }
 
 /* css to style the menu */
@@ -104,14 +105,13 @@ footer {
     
     list-style: none;
     position: relative;
-    margin: auto;
     width: 100%;
     background: #333;
     list-style: none;
 }
 
 .nav li {
-	float: left;
+	float: right;
 	width: 160px;
 	position: relative;
 }

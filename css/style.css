@@ -1,0 +1,33 @@
+#content{
+	width:1024px;
+	margin:auto;
+	text-align: center;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+#content #cat_container{
+	display: inline-block;
+	margin-left:auto;
+	margin-right:auto;
+}
+#cat_container .categoryimage{
+	border:solid 2px grey;
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	width:250px;
+	height:500px;
+}
+#cat_container .categoryimage h1{
+	color:white;
+	font-size: 40px;
+	background-color: black;
+	opacity: 0.7;
+	position:absolute;
+	text-align:center;
+	width:250px;
+	z-index:100;
+}
+#cat_container .categoryimage img{
+	position:relative;
+}
