@@ -21,7 +21,7 @@ class Structure{
             if($row['child_label'] == NULL){
                 echo "\t\t\t<li><a href='#' id='" . $row['link'] . "'>" . $row['label'] . "</a></li>" . PHP_EOL;
             }elseif($previous_menu != $row['label']){
-                echo "<li id='" . $row['link'] . "''>";
+                echo "<li id='" . $row['link'] . "'>";
                 $this->display_children($menu_array, $row['label']);
                 echo '</li>';
 

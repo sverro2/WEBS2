@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="css/std.css" rel="stylesheet" type="text/css"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script src="js/main.js"></script>
@@ -29,10 +28,10 @@
         </script>
     </head>
     <body>
-        <div class="main_container">
-            <header class="maindiv"></header>
+        <div id="top_container"></div>
+            <header></header>
             <menu>
-                <div class="center_alignment">
+                <div id="menu_alignment">
                     <?php 
                         include 'class/menu.class.php'; 
                         
@@ -46,7 +45,6 @@
             <div id="content">
                 <?php include 'pages/home.php' ?>
             </div>
-        </div>
         
         <footer></footer>
     </body>
