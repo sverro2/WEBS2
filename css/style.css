@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
+    font-family: Ubuntu, Calibri, "Lucida Grande";
 }
 
 /* beginning of website css sheet. All css above is for resetting perposes*/
@@ -33,7 +34,6 @@ body {
 /* importand css / standard */
 #content{
     position: relative;
-    font-family: Ubuntu, Calibri, "Lucida Grande";
     min-height: 800px;
     min-width: 768px;
     width:80%;
