@@ -7,10 +7,10 @@ $(document).ready(
         $('.nav li').hover(
             function () {
                 
-                $('ul', this).slideDown();
+                $('ul', this).stop(true, true).slideDown();
             },
             function () {
-                $('ul', this).slideUp();
+                $('ul', this).stop(true, true).slideUp();
             }
         );
 
