@@ -3,7 +3,7 @@
 class Structure{
     
     private $connection;
-    private $menu_sql_string = "SELECT b.id, a.label, link, b.label child_label, url child_link FROM menu_top a LEFT JOIN category b ON parent_label = a.label ORDER BY a.sort;";
+    private $menu_sql_string = "SELECT a.label, link, b.label child_label, url child_link FROM menu_top a LEFT JOIN category b ON parent_label = a.label ORDER BY a.sort;";
     
     public function __construct() {
         require './class/database.class.php';

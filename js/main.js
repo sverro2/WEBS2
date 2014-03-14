@@ -7,30 +7,39 @@ $(document).ready(
         $('.nav li').hover(
             function () {
                 
-                $('ul', this).stop(true).slideDown();
+                $('ul', this).slideDown();
             },
             function () {
-                $('ul', this).stop(true).slideUp();
+                $('ul', this).slideUp();
             }
         );
 
-        $('#content').on('mouseover', '.mediaimg', function() {
+        $('#content').on('click', '.mediaimg', function() {
             var url = $(this).data('url');
             $('#video').remove();
             $('#mainmedia').html("<img id='mainimg' src='" + url + "'>");
         });
 
-        $('#content').on('mouseover', '.mediavid', function() {
+        $('#content').on('click', '.mediavid', function() {
             var url = $(this).data('url');
             console.log('vid');
             $('#mainimg').remove();
             $('#mainmedia').html('<iframe width="300" height="300" id="video" src="//www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>');
         });
 
+        $('#content').on('click', '.productlink', function() {
+            var id = $(this).data('product');
+            console.log('vid');
+            $('#content').empty();
+            $('#content').load('pages/product.php',{id: id})
+        });
+
         //test code
-		$('#about').click(function(){
+		$('.menuitem').click(function(){
+            var page = $(this).data('page');
+            var param = $(this).data('parameter');
 			$('#content').empty();
-			$('#content').load('pages/product.php',{id: '1'});
+			$('#content').load(page, {'parameter': param});
 		});
 
 

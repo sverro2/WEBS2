@@ -31,7 +31,7 @@ class Database {
         if( ! $this->result )
         {
             echo $this->my_sqli_connect->connect_error;
-            echo 'An error occured when processing an importend query. Exited...';
+            echo 'An error occured when processing an important query. Exited...';
             exit;
         }
 

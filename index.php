@@ -17,10 +17,10 @@
                 $('.nav li').hover(
                     function () {
                         
-                        $('ul', this).slideDown();
+                        $('ul', this).stop(true).slideDown("fast");
                     },
                     function () {
-                        $('ul', this).slideUp();
+                        $('ul', this).stop(true).slideUp("fast");
                     }
                 );
             }

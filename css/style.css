@@ -83,9 +83,8 @@ menu {
 
 #cat_container .categoryimage{
     border:solid 2px grey;
-    margin-left:10px;
-    margin-right:10px;
-    margin-top:10px;
+    background-position-x: center;
+    margin: 10px 4px 4px 0px;
     width:250px;
     float: left;
     height:500px;
@@ -96,15 +95,21 @@ menu {
     background-color: black;
     opacity: 0.7;
     text-align:center;
-    width:250px;
-    z-index:100;
-    position: absolute;
+    width:100%;
 }
 
 #cat_container .categoryimage:hover h1{
     color:#333;
     background-color: white;
 	
+}
+
+#catleft{
+	float:left;
+	margin-right:20px;
+}
+#catmain{
+	margin-left:265px;
 }
 
 /* stylise product page */
@@ -129,6 +134,16 @@ menu {
     cursor: pointer;
 }
 
+.product #media .thumb{
+	cursor: pointer;
+}
+
+.product #media #mainimg{
+	width:300px;
+	height:300px;
+	border: 1px gray solid;
+}
+
 .product #details{
     text-align: left;
     width:700px;
@@ -146,6 +161,11 @@ menu {
     margin-bottom:3px;
 }
 
+.thumb{
+	width:90px;
+	height:90px;
+	border: 1px gray solid;
+}
 
 .product #details #availability{
     padding-top:0px;
@@ -180,6 +200,27 @@ menu {
 .product #details ul{
     list-style-image: url('../img/aperturebullet.png');
     margin-left:30px;
+}
+
+.productrow{
+	padding-top:5px;
+	padding-right:15px;
+	border-bottom:1px gray solid;
+	text-align: left;
+	height: 110px;
+}
+.productrow .thumb{
+	padding:5px;
+	margin-right:20px;
+	float:left;
+	clear:right;
+}
+.productrow .description{
+	padding:5px;
+}
+.productrow .description h1{
+	font-weight: bold;
+	font-size:25px;
 }
 
 /* css to style the menu */
