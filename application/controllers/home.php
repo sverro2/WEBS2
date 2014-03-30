@@ -3,15 +3,13 @@ class home extends controller {
 
 	function index()
 	{
+            $categories_sql_string = "SELECT * FROM category";
 
-		$categories_sql_string = "SELECT * FROM category";
+            $connection = new Database("sbrettsc_db");
 
-        require_once('application/models/database.class.php');
-        $connection = new Database("sbrettsc_db");
-
-        $menu_array = $connection->get_array_from_query($categories_sql_string);
-        $data = array("menu_array"=>$menu_array);
-		$this->LoadView("pages/home", $data);
+            $menu_array = $connection->get_array_from_query($categories_sql_string);
+            $data = array("menu_array"=>$menu_array);
+            $this->LoadView("pages/home", $data);
 	}
 
 	function shoppingcart(){

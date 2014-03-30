@@ -7,25 +7,6 @@
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script src="js/main.js"></script>
-        
-        <script type="text/javascript">
-        $(document).ready(
-            /* This is the function that will get executed after the DOM is fully loaded */
-            function () {
-                
-                /* Next part of code handles hovering effect and submenu appearing */
-                $('.nav li').hover(
-                    function () {
-                        
-                        $('ul', this).stop(true).slideDown("fast");
-                    },
-                    function () {
-                        $('ul', this).stop(true).slideUp("fast");
-                    }
-                );
-            }
-            );
-        </script>
     </head>
     <body>
         <div id="top_container"></div>
@@ -41,7 +22,6 @@
                 </div>
             </menu>
             
-            <!--<article class="product_container">Artikel</article> -->
             <div id="content">
                 <?php 
                     $uri = array();
