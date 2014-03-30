@@ -6,7 +6,7 @@ class Structure{
     private $menu_sql_string = "SELECT b.id, a.label, link, b.label child_label, url child_link FROM menu_top a LEFT JOIN category b ON parent_label = a.label ORDER BY a.sort;";
     
     public function __construct() {
-        require './class/database.class.php';
+        require 'application/models/database.class.php';
         $this->connection = new Database("sbrettsc_db");
     }
     
@@ -19,7 +19,7 @@ class Structure{
         foreach ($menu_array as $row){
 
             if($row['child_label'] == NULL){
-                echo "\t\t\t<li><a href='#' class='menuitem' data-category='" . $row['link'] . "'>" . $row['label'] . "</a></li>" . PHP_EOL;
+                echo "\t\t\t<li><a href='?route=home/" . $row['link'] . "' class='menuitem'>" . $row['label'] . "</a></li>" . PHP_EOL;
             }elseif($previous_menu != $row['label']){
                 echo "<li id='" . $row['link'] . "'>";
                 $this->display_children($menu_array, $row['label']);
@@ -37,12 +37,12 @@ class Structure{
         foreach ($menu_array as $row){
             if ($row['label'] == $child){
                 if(!$menu_set){
-                    echo "<a href='#' class='menuitem' data-link='" . $row['link'] . "'>" . $row['label'] . "</a>". PHP_EOL;
+                    echo "<a href='?route=home/" . $row['link'] . "' class='menuitem'>" . $row['label'] . "</a>". PHP_EOL;
                     echo '<ul>'. PHP_EOL;
                     $menu_set = TRUE;
                 }
 
-                echo "\t\t\t\t<li><a href='#' class='menuitem' data-page='pages/category.php' data-parameter='" . $row['id'] . "'>" . $row['child_label'] . "</a></li>" . PHP_EOL;
+                echo "\t\t\t\t<li><a href='?route=category/show/" . $row['child_link'] . "' class='menuitem'>" . $row['child_label'] . "</a></li>" . PHP_EOL;
             }        
 
         } 

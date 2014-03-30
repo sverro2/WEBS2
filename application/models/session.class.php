@@ -7,20 +7,17 @@
  */
 class session {
     private $is_admin = false;                  //is the person a coordinator?
-    private $is_coordinator = false;            //is the person a coordinator?
     
     private $account_id = -1;                 //database should look for things related to this person
     private $account_name = "Guest";            //accountname just for quick reference
     
     private $error = array();                   //collects all errors
     
+    private $cart = array();
+
     //setters
     public function set_admin(){
         $this->is_admin = true;
-    }
-    
-    public function set_coordinator(){
-        $this->is_coordinator = true;
     }
     
     public function set_accountinfo($id, $name){
@@ -57,6 +54,34 @@ class session {
     
     public function get_id(){
         return $this->account_id;
+    }
+
+    public function get_cart(){
+        return $this->cart;
+    }
+
+    public function add_cart($id){
+        if(array_key_exists($id, $this->cart))
+        {
+            $val = $this->cart[$id];
+            $this->cart[$id] = ($val + 1);
+        }else{
+            $this->cart[$id] = 1;
+        }
+    }
+
+    public function remove_cart($id){
+        if(array_key_exists($id, $this->cart))
+        {
+            $val = $this->cart[$id];
+            if($val > 1)
+            {
+                $this->cart[$id] = ($val - 1);
+            }else{
+                unset($this->cart[$id]);
+            }
+            
+        } 
     }
     
     /**

@@ -29,11 +29,11 @@
     </head>
     <body>
         <div id="top_container"></div>
-            <header></header>
+           <a href="index.php"> <header></header></a>
             <menu>
                 <div id="menu_alignment">
                     <?php 
-                        include 'class/menu.class.php'; 
+                        include 'application/views/elements/menu.class.php'; 
                         
                         $menu_creator = new Structure();
                         $menu_creator->display_menu();
@@ -43,8 +43,24 @@
             
             <!--<article class="product_container">Artikel</article> -->
             <div id="content">
-                <?php include 'pages/home.php' ?>
-            </div>
+                <?php 
+                    $uri = array();
+                    if( isset( $_GET['route'] ) ){ 
+                        $array_tmp_uri = preg_split('[\\/]', $_GET['route'], -1, PREG_SPLIT_NO_EMPTY);
+                        $uri['controller'] = @ $array_tmp_uri[0];
+                        $uri['method']     = @ $array_tmp_uri[1];
+                        $uri['var']        = @ $array_tmp_uri[2];
+                    }
+                    else{
+                        $uri['controller'] = "home";
+                        $uri['method']     = "index"; 
+                        $uri['var']        = ""; 
+                    }
+                    //Load config and base 
+                    require_once("application/base.php"); 
+                    $application = new application( $uri );
+                ?>
+            </div>  
         
         <footer></footer>
     </body>

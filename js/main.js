@@ -27,13 +27,13 @@ $(document).ready(
             $('#mainmedia').html('<iframe width="300" height="300" id="video" src="//www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>');
         });
 
+        /*
         $('#content').on('click', '.productlink', function() {
             var id = $(this).data('product');
             console.log('vid');
             $('#content').empty();
             $('#content').load('pages/product.php',{id: id})
         });
-
         //test code
 		$('.menuitem').click(function(){
             var page = $(this).data('page');
@@ -41,7 +41,7 @@ $(document).ready(
 			$('#content').empty();
 			$('#content').load(page, {'parameter': param});
 		});
-
+        */
 
     }
 );	
