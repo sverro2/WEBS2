@@ -336,3 +336,6 @@ menu {
     margin-right:0px;
 }
 
+#searchmsg b{
+    font-weight:bold;
+}

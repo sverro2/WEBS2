@@ -50,8 +50,12 @@ class model_product extends model {
                 "label"=>"search",
                 "thumbnail"=>"img/search.png"
             );
+        $search = array(
+                "term"=>$pat,
+                "results"=>count($product_array)
+            );
 
-        return array("product_array"=>$product_array, "category_data"=>$category_data);
+        return array("product_array"=>$product_array, "category_data"=>$category_data,"search"=>$search);
     }
 
 }
