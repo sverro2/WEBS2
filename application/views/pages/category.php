@@ -21,7 +21,6 @@
 		echo "<b>" . $search['results'] . "</b> search results found for \"<b>" . $search['term'] . "</b>\"";
 		 } ?></span>
 	<?php
-	<?php 
 		if(is_array($product_array) && count($product_array) > 0){
 			foreach($product_array as $row)
 			{
