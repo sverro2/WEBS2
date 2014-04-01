@@ -34,6 +34,10 @@ $(document).ready(
             $('#mainmedia').html('<iframe width="300" height="300" id="video" src="//www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>');
         });
         
+        $('#content').on('click', '#backbutton', function() {
+            history.go(-1);
+        });
+
         //action when clicking the commit button on the shoppingcart page
         $('input[name=commit]').click(function(){
             var data = {};
@@ -87,6 +91,15 @@ $(document).ready(
                 });
             }else{
                 alert("Item has already been added to cart!");
+            }
+        });
+
+        $('#searchbar').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                var pat = $('#searchbar').val();
+                window.location.replace('index.php?route=category/search/' + pat);
+
             }
         });
 

@@ -1,5 +1,8 @@
 <?php
 class category extends controller {
+    function index(){
+        $this->redirect('home/index');
+    }
 
 	function show($url)
 	{
@@ -40,4 +43,12 @@ class category extends controller {
                     $this->LoadView("pages/product", $data);
                 }
 	}
+
+    function search($pat)
+    {
+        $data = $this->LoadModel("model_product")->search($pat);
+                if (!empty($data['category_data'])){
+                    $this->LoadView("pages/category", $data);
+                }
+    }
 }

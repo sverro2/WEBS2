@@ -38,4 +38,20 @@ class model_product extends model {
         );
     }
 
+    function search($pat){
+        require_once("application/models/database.class.php"); 
+        $connection = new Database("sbrettsc_db");
+
+        $product_query = "CALL search('" . $pat . "')";
+
+        $product_array = $connection->get_array_from_query($product_query);
+
+        $category_data = array(
+                "label"=>"search",
+                "thumbnail"=>"img/search.png"
+            );
+
+        return array("product_array"=>$product_array, "category_data"=>$category_data);
+    }
+
 }
