@@ -140,6 +140,13 @@ menu {
     text-decoration: none;
 }
 
+/*stylise breadcrumb*/
+#breadcrumb{
+    background-color: red;
+    position: relative;
+    margin-left: 350px;
+}
+
 /* stylise product page */
 
 .product #media{
@@ -257,11 +264,12 @@ menu {
 .add_item_to_shoppingcart{
     text-align: center;
     padding-top: 5px;
-    margin-top: 20px;
+    margin-top: 0px;
     display: block;
+    margin-left: 120px;
     color: white;
     width: 220px;
-    height: 30px;
+    height: 25px;
     border: 1px solid gray;
     background: #333333;
 }
