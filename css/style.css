@@ -128,12 +128,12 @@ menu {
     width:250px;
     border:solid 2px grey;
     background-color: #4A4A4A;
-
 }
 
 #backbutton:hover h1{
     background-color: white;
     background-color: #616161;
+    cursor: pointer;
     
 }
 #backbutton{
