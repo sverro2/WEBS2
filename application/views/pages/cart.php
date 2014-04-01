@@ -4,7 +4,7 @@
 
 		    
             
-            <div class='categoryimage' style='background-image: url(img/misccategory.png)'>
+            <div class='categoryimage' style='background-image: url(img/shoppingcart.png)'>
             <h1>Cart</h1>
             </div>
 	</div>
