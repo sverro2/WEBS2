@@ -88,7 +88,14 @@ class Structure{
             }elseif($origin[1] === "search"){
                 $crumbs[] = $this->add_crumb(ucfirst($origin[1]) . " (" . ucfirst($origin[2]) . ")", "");
             }elseif($origin[1] === "product"){
+                if(!filter_var($origin[2], FILTER_VALIDATE_INT)) return false;
                 
+                $query = 'SELECT title, label, category.url as url FROM product JOIN category ON category_id = category.id WHERE product.id =' .  $origin[2];
+                $product_info_breadcrumbs = $this->connection->get_array_from_query($query);
+                if(!empty($product_info_breadcrumbs)){
+                    $crumbs[] = $this->add_crumb(ucfirst($product_info_breadcrumbs[0]['label']), "?route=category/show/" . $product_info_breadcrumbs[0]['url']);
+                    $crumbs[] = $this->add_crumb(ucfirst($product_info_breadcrumbs[0]['title']), "");
+                }
             }
         }
         
