@@ -4,6 +4,7 @@
             
 	<?php 
 		echo "<div id='mainmedia'><img src='img/" . $image . "' id='mainimg'></div><br/>";
+		echo "<img src='img/" . $image . "' class='mediathumb mediaimg' data-url='img/" . $image . "'>";
 		foreach($product_images_array as $row)
 		{
 			echo "<img src='img/" . $row['url'] . "' class='mediathumb mediaimg' data-url='img/" . $row['url'] . "'>";
