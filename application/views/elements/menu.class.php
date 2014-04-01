@@ -13,7 +13,7 @@ class Structure{
     public function display_menu(){
         $menu_array = $this->connection->get_array_from_query($this->menu_sql_string);
       
-        echo "<ul class='nav'><li><input type='text' placeholder='Zoek' id='searchbar' class='menuitem' /></li>" . PHP_EOL;
+        echo "<ul class='nav'><li><input type='text' placeholder='Search...' id='searchbar' /></li>" . PHP_EOL;
         $previous_menu = null;
 
         foreach ($menu_array as $row){

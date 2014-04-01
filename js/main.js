@@ -67,13 +67,12 @@ $(document).ready(
         //animations and acions shoppingcard button
         $('.add_item_to_shoppingcart').click(function(event){
             event.preventDefault();
-            var url = document.location.toString();
-            var article_id = url.substring(url.lastIndexOf('/') + 1);         //extract article id from url
             if(($(this).text() === "Add to shoppingcart")){
                 
                 $(this).fadeOut(function(){
+                    var id = $(this).data('product');
                     var data = {};
-                    data[article_id] = 1;
+                    data[id] = 1;
                     $.ajax(
                     {    
                         url: 'application/models/cart_actions.php',

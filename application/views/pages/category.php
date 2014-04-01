@@ -30,7 +30,7 @@
 				echo "<div class='description'><h1>" . $row['title'] . "</h1>" . $row['fullname'] . "</div>";
 				echo "<div class='price'><h1>&euro;" . $row['price'] . "</h1> ";
                                 echo "</div>";
-                                echo '<a href="#" class="add_item_to_shoppingcart">';
+                                echo '<a href="#" class="add_item_to_shoppingcart" data-product=' . $row['id'] . '>';
                                 if($is_in_cart[$row['id']]){echo 'Added to cart';} 
                                 elseif ($is_in_stock[$row['id']]==0) {echo 'Sorry, Out of stock';} 
                                 else {echo 'Add to shoppingcart';} 
