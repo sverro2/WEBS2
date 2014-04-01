@@ -25,6 +25,7 @@
 				echo PHP_EOL . "<div class='productrow'>";
 				echo PHP_EOL . "<img src='img/" . $row['defaultimage'] . "' class='thumb'>";
 				echo "<div class='description'><h1>" . $row['title'] . "</h1>" . $row['fullname'] . "</div>";
+				echo "<div class='price'><h1>&euro;" . $row['price'] . "</h1></div>";
 				echo PHP_EOL . "</div></a>";
 			}
 		}

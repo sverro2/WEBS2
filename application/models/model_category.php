@@ -6,7 +6,7 @@ class model_category extends model {
         require_once("application/models/database.class.php"); 
         $connection = new Database("sbrettsc_db");
 
-		$product_query = "SELECT product.id as id, defaultimage, title, fullname FROM product JOIN category ON product.category_id = category.id WHERE category.url = '" . $url . "'";
+		$product_query = "SELECT product.id as id, defaultimage, title, fullname, price FROM product JOIN category ON product.category_id = category.id WHERE category.url = '" . $url . "'";
 		$category_query = "SELECT * FROM category WHERE url = '" . $url . "'";
 
 	    $product_array = $connection->get_array_from_query($product_query);
