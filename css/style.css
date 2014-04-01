@@ -68,7 +68,7 @@ menu {
 }
 
 #menu_alignment{
-    width: 700px;
+    width: 800px;
     margin-left:auto;
     margin-right:10%;
     /*border: solid 10px;*/
@@ -326,5 +326,13 @@ menu {
     border-right: gray solid 1px;
     border-left: gray solid 1px;
     border-bottom: gray solid 1px;
+}
+
+#searchbar{
+    background-color:gray;
+    color:white;
+    border:0px;
+    height:30px;
+    margin-right:0px;
 }
 

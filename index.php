@@ -19,6 +19,7 @@
         <div id="top_container"></div>
            <a href="index.php"> <header></header></a>
             <menu>
+                
                 <div id="menu_alignment">
                     <?php 
                         include 'application/views/elements/menu.class.php'; 

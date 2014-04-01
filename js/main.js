@@ -90,6 +90,15 @@ $(document).ready(
             }
         });
 
+        $('#searchbar').keyup(function(e){
+            if(e.keyCode == 13)
+            {
+                var pat = $('#searchbar').val();
+                window.location.replace('index.php?route=category/search/' + pat);
+
+            }
+        });
+
         /*
         $('#content').on('click', '.productlink', function() {
             var id = $(this).data('product');
