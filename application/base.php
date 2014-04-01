@@ -6,9 +6,16 @@ class application
 
 	function __construct( $uri = null )
 	{
+                ini_set('display_errors', 1);
 		$this->uri = $uri;
 
 		$this->loadController( $uri['controller'] );
+                
+                if(!isset($_SESSION['shopping_cart'])){
+                    $_SESSION['shopping_cart'] = new session();
+                }else{
+                    //session_destroy();
+                }
 	}
 
 	function loadController( $class )

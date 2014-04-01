@@ -1,3 +1,10 @@
+<?php
+    require 'application/models/session.class.php';
+    session_start();
+    //session_destroy();
+    //print_r($_SESSION['shopping_cart']->get_cart());
+    //$_SESSION['shopping_cart']->add_cart(5);
+?>
 <!DOCTYPE html>
 
 <html>

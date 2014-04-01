@@ -66,9 +66,10 @@ menu {
 }
 
 #menu_alignment{
-    width: 1024px;
+    width: 700px;
     margin-left:auto;
     margin-right:10%;
+    /*border: solid 10px;*/
 }
 
 .centered_inline_block{
@@ -247,19 +248,35 @@ menu {
 	font-size:25px;
 }
 
+.add_item_to_shoppingcart{
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 20px;
+    display: block;
+    color: white;
+    width: 220px;
+    height: 30px;
+    border: 1px solid gray;
+    background: #333333;
+}
+
+.add_item_to_shoppingcart:hover{
+    color: #333333;
+    background: white;
+    
+}
+
 /* css to style the menu */
 
 .nav {
-    z-index: 101;
+    z-index: 1;
     list-style: none;
     position: relative;
-    width: 100%;
-    background: #333;
     list-style: none;
 }
 
 .nav li {
-    float: right;
+    float: left;
     width: 160px;
     position: relative;
 }

@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <div id="catleft">
 	<div class="cat_container">
 		<a href="index.php" id="backbutton"> <h1><< BACK</h1> </a>

@@ -13,8 +13,18 @@ class home extends controller {
 	}
 
 	function shoppingcart(){
-		$cart = $_SESSION->get_cart();
-
-		$this->LoadView("pages/cart", $cart);
+		$cart = @ $_SESSION['shopping_cart'];
+                $data = array();
+                
+                if(isset($cart)){
+                    foreach(array_keys($cart->get_cart()) as $id){
+                        $prepared_row = $this->LoadModel("model_product")->get_details($id);
+                        $value = $cart->get_cart();
+                        $prepared_row['amount_in_cart'] = $value[$id];
+                        array_push($data, $prepared_row);
+                    }  
+                }
+                
+		$this->LoadView("pages/cart",$data);
 	}
 }

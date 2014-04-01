@@ -42,10 +42,16 @@
 			<?php
 				foreach($product_specs_array as $row)
 				{
-					echo "<li>" . $row['spec'] . ":" . $row['spec_value'] . "</li>";
+					echo "<li>" . $row['spec'] . ": " . $row['spec_value'] . "</li>";
 				}
 			?>
 		</ul>
+                
+                <a href="#" class="add_item_to_shoppingcart"><?php 
+                        if(isset($added_to_cart) && $added_to_cart){echo 'Added to cart';} 
+                        elseif ($stock==0) {echo 'Sorry, Out of stock';} 
+                        else {echo 'Add to shoppingcart';} 
+                    ?></a>
 
 	</div>
 </div>

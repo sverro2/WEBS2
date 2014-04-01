@@ -10,6 +10,10 @@ class category extends controller {
 	function product($id)
 	{
 		$data = $this->LoadModel("model_product")->get_details($id);
+                $cart = @ $_SESSION['shopping_cart'];
+                if(isset($cart)){
+                    $data['added_to_cart'] = $cart->exists_cart($id);
+                }
 		$this->LoadView("pages/product", $data);
 	}
 }

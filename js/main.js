@@ -33,6 +33,62 @@ $(document).ready(
             $('#mainimg').remove();
             $('#mainmedia').html('<iframe width="300" height="300" id="video" src="//www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>');
         });
+        
+        //action when clicking the commit button on the shoppingcart page
+        $('input[name=commit]').click(function(){
+            var data = {};
+            $('input[type=number]').each(function() { 
+                var value = $(this).val();
+                var key = $(this).data('product');
+                data[key] = value;
+            });
+            console.log(data);
+            
+            $.ajax(
+            {    
+                url: 'application/models/cart_actions.php',
+                data: data,                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    //alert("The item is added to your shoppingcart!" + output);
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not add the item to your cart: " + thrownError);
+                }
+            });
+        });
+        
+        //animations and acions shoppingcard button
+        $('.add_item_to_shoppingcart').click(function(event){
+            event.preventDefault();
+            var url = document.location.toString();
+            var article_id = url.substring(url.lastIndexOf('/') + 1);         //extract article id from url
+            if(($(this).text() === "Add to shoppingcart")){
+                
+                $(this).fadeOut(function(){
+                    var data = {};
+                    data[article_id] = 1;
+                    $.ajax(
+                    {    
+                        url: 'application/models/cart_actions.php',
+                        data: data,                                //set article amount to one.
+                        type: 'post',
+                        success: function(output) 
+                        {
+                            //alert("The item is added to your shoppingcart!" + output);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert("Could not add the item to your cart: " + thrownError);
+                        }
+                    });
+                    $(this).text("Item is added").fadeIn();
+                });
+            }else{
+                alert("Item has already been added to cart!");
+            }
+        });
 
         /*
         $('#content').on('click', '.productlink', function() {
