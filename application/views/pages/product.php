@@ -1,8 +1,9 @@
 <div class="product">
 
 	<div id="media">
+            
 	<?php 
-		echo "<div id='mainmedia'><img src='img/" . $image . "' id='mainimg'></div><br/>"; 
+		echo "<div id='mainmedia'><img src='img/" . $image . "' id='mainimg'></div><br/>";
 		foreach($product_images_array as $row)
 		{
 			echo "<img src='img/" . $row['url'] . "' class='mediathumb mediaimg' data-url='img/" . $row['url'] . "'>";
