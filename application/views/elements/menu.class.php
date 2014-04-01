@@ -49,14 +49,52 @@ class Structure{
         echo "\t\t\t</ul>" . PHP_EOL;
     }
     
-    public function display_breadcrumbs($current_url){
-        $origin = substr($current_url, strpos($current_url, "=") + 1);
-        if(strpos($current_url, "=")){
-            echo '<div id="breadcrumb">' . PHP_EOL;
-                echo $origin;
-            echo '</div>' . PHP_EOL;
+    private function add_crumb($text, $url){
+        return array('text' => $text, 'url' => $url);
+    }
+    
+    private function print_crumbs($crumbs){
+        echo '<div id="breadcrumb">' . PHP_EOL;
+        foreach ($crumbs as $crumb){            
+            if(empty($crumb['url'])){
+                echo '<div class="selected">&gt; ' . $crumb['text'] . "</div>";;
+            }else{
+               echo '<a href="' . $crumb['url'] . '">';
+               echo '<div class="unselected">&gt; ' . $crumb['text'] . "</div>";;
+               echo "</a>"; 
+            }
+            
         }
+        echo '</div>' . PHP_EOL;
         
     }
+    
+    public function display_breadcrumbs($current_url){
+        $origin = substr($current_url, strpos($current_url, "=") + 1);
+        $stop = false;
+        $crumbs = array();
+        if(!strpos($current_url, "=")) return false;
+        if($origin === "home/index") return false;
+        $origin = explode("/", $origin);
+        
+        if($origin[0] === "home"){
+            $crumbs[] = $this->add_crumb("Home", "?route=home/index");
+            $crumbs[] = $this->add_crumb(ucfirst($origin[1]), "");
+        }elseif($origin[0] === "category"){
+            $crumbs[] = $this->add_crumb("Home", "?route=home/index");
+            
+            if($origin[1] === "show"){
+                $crumbs[] = $this->add_crumb(ucfirst($origin[2]), "");
+            }elseif($origin[1] === "search"){
+                $crumbs[] = $this->add_crumb(ucfirst($origin[1]) . " (" . ucfirst($origin[2]) . ")", "");
+            }elseif($origin[1] === "product"){
+                
+            }
+        }
+        
+        $this->print_crumbs($crumbs);
+    }
+    
+    
 }
 
