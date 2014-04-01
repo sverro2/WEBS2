@@ -267,7 +267,7 @@ menu {
     margin-top: 0px;
     display: block;
     margin-left: 120px;
-    color: white;
+    color: white !important;
     width: 220px;
     height: 25px;
     border: 1px solid gray;
@@ -275,7 +275,7 @@ menu {
 }
 
 .add_item_to_shoppingcart:hover{
-    color: #333333;
+    color: #333333 !important;
     background: white;
     
 }

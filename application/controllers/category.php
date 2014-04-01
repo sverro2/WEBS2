@@ -48,6 +48,7 @@ class category extends controller {
     {
         $cart = @ $_SESSION['shopping_cart'];
         $data = $this->LoadModel("model_product")->search($pat);
+        
         if(isset($cart)){
             $is_in_cart = array();
             foreach ($data['product_array'] as $item){
@@ -62,7 +63,7 @@ class category extends controller {
             $data['is_in_cart'] = $is_in_cart;
             $data['is_in_stock'] = $is_in_stock;
         }
-
+        
         if (!empty($data['category_data'])){
             $this->LoadView("pages/category", $data);
         }
