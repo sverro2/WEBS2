@@ -110,7 +110,7 @@ menu {
 #catleft{
 	float:left;
 	margin-right:15px;
-    height:100%;
+        height:100%;
 }
 
 #catmain a{
@@ -118,7 +118,7 @@ menu {
     color:black;
 }
 #catmain{
-	margin-left:273px;
+        margin-left: 350px;
 }
 
 #backbutton h1{
@@ -174,8 +174,7 @@ menu {
 
 .product #details{
     text-align: left;
-    width:700px;
-    float:right;
+    margin-left: 350px;
     line-height: normal;
 }
 .product #details h1{
