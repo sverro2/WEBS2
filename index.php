@@ -31,6 +31,7 @@
             
             <div id="content">
                 <?php 
+                    $menu_creator->display_breadcrumbs($_SERVER['REQUEST_URI']);
                     $uri = array();
                     if( isset( $_GET['route'] ) ){ 
                         $array_tmp_uri = preg_split('[\\/]', $_GET['route'], -1, PREG_SPLIT_NO_EMPTY);

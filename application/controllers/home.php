@@ -27,4 +27,8 @@ class home extends controller {
                 
 		$this->LoadView("pages/cart",$data);
 	}
+        
+        function about(){
+            $this->LoadView("pages/about");
+        }
 }

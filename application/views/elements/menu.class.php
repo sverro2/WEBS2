@@ -48,5 +48,15 @@ class Structure{
         } 
         echo "\t\t\t</ul>" . PHP_EOL;
     }
+    
+    public function display_breadcrumbs($current_url){
+        $origin = substr($current_url, strpos($current_url, "=") + 1);
+        if(strpos($current_url, "=")){
+            echo '<div id="breadcrumb">' . PHP_EOL;
+                echo $origin;
+            echo '</div>' . PHP_EOL;
+        }
+        
+    }
 }
 
