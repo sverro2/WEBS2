@@ -107,7 +107,8 @@ menu {
 
 #catleft{
 	float:left;
-	margin-right:20px;
+	margin-right:15px;
+    height:100%;
 }
 
 #catmain a{
@@ -115,7 +116,7 @@ menu {
     color:black;
 }
 #catmain{
-	margin-left:265px;
+	margin-left:273px;
 }
 
 #backbutton h1{
