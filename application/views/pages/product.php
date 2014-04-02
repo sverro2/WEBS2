@@ -21,11 +21,13 @@
 		<h1><?php echo $title; ?></h1>
 		<h2><?php echo $fullname; ?></h2>
 		<h1 id="price">&euro;<?php echo $price; ?></h1>
-        <a href="#" class="add_item_to_shoppingcart"><?php 
-                if(isset($added_to_cart) && $added_to_cart){echo 'Added to cart';} 
-                elseif ($stock==0) {echo 'Sorry, Out of stock';} 
-                else {echo 'Add to shoppingcart';} 
-            ?></a>
+                <?php
+                echo '<a href="#" class="add_item_to_shoppingcart" data-product="' . $product_id . '">';
+                                if($added_to_cart){echo 'Added to cart';} 
+                                elseif ($stock==0) {echo 'Sorry, Out of stock';} 
+                                else {echo 'Add to shoppingcart';} 
+                                echo "</a>";
+                                ?>
 		<p id="availability">
 			<?php
 				if($stock < 1)

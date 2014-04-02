@@ -31,8 +31,10 @@ class Database {
         if( ! $this->result )
         {
             echo $this->my_sqli_connect->connect_error;
+            echo $this->my_sqli_connect->errno;
+            echo $this->my_sqli_connect->error;
             echo 'An error occured when processing an important query. Exited...';
-            exit;
+            return false;
         }
 
         $aResult = array();

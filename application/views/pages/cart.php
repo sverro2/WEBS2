@@ -20,7 +20,7 @@
                         echo PHP_EOL . "<img src='img/" . $row['image'] . "' class='thumb'>";
                         echo "<div class='description'><h1>" . $row['title'] . "</h1>" . $row['fullname'] . ' (x' . $row['amount_in_cart'] . ')<br>' . 
                                 "Product cost (quantity of one): &euro;" . $row['price'] ."</div></a>";
-                        echo 'Amount: <input type="number" min="0" max="10"  data-product="' . $row['product_id'] . '" value=' . $row['amount_in_cart'] . ">";
+                        echo 'Amount (max 10): <input type="number" min="0" max="10"  data-product="' . $row['product_id'] . '" value=' . $row['amount_in_cart'] . ">";
                         echo PHP_EOL . "</div>";
                 }
                 
