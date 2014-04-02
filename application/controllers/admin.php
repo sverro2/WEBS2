@@ -1,7 +1,7 @@
 <?php
 class admin extends controller {
         
-    function is_logged_in(){
+    public function is_logged_in(){
         $loged_in = $_SESSION['shopping_cart']->is_admin();
         
         if(!$loged_in){
@@ -13,9 +13,9 @@ class admin extends controller {
         }
     }
     
-    function index()
+    public function index()
     {
-        if(!$this->is_logged_in()) return false;
+        if(!$this->is_logged_in()) return false;            //check if user had been logged in!!!
         $categories_sql_string = "SELECT * FROM category";
 
         $connection = new Database("sbrettsc_db");
@@ -25,23 +25,44 @@ class admin extends controller {
         $this->LoadView("pages/home", $data);
     }
 
-    function shoppingcart(){
-            $cart = @ $_SESSION['shopping_cart'];
-            $data = array();
-
-            if(isset($cart)){
-                foreach(array_keys($cart->get_cart()) as $id){
-                    $prepared_row = $this->LoadModel("model_product")->get_details($id);
-                    $value = $cart->get_cart();
-                    $prepared_row['amount_in_cart'] = $value[$id];
-                    array_push($data, $prepared_row);
-                }  
-            }
-
-            $this->LoadView("pages/cart",$data);
+    private function category(){
+        if(!$this->is_logged_in()) return false;            //check if user had been logged in!!!
     }
-
-    function about(){
-        $this->LoadView("pages/about");
+    
+    public function add_category(){
+        $this->category();
+    }
+    
+    public function remove_category(){
+        $this->category();
+    }
+    
+    public function edit_category($category){
+        $this->category();
+        $categories_sql_string = "SELECT * FROM category";
+        $connection = new Database("sbrettsc_db");
+        $menu_array = $connection->get_array_from_query($categories_sql_string);
+        $data = array("menu_array"=>$menu_array);
+        
+        $this->loadView("editors/category_editor");
+    }
+    
+    private function product(){
+        if(!$this->is_logged_in()) return false;            //check if user had been logged in!!!
+    }
+    
+    public function add_product(){
+        $this->product();
+    }
+    
+    public function remove_product(){
+        $this->product();
+    }
+    
+    public function edit_product($product){
+        $this->product();
+        $data = $this->LoadModel("model_product")->get_details($id);
+        
+        $this->loadView("editors/product_editor");
     }
 }
