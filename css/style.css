@@ -146,34 +146,31 @@ menu {
     background-color: red;
     margin-bottom: 10px;
     width: 80%;
-    height:30px;
+    height:28px;
     background-color: #333;
     color: white;
     margin-left:10%;
     position: absolute;
-    border-left: 2px solid gray;
 }
 
 #breadcrumb div{
-    padding:7px 8px;
+    padding:7px 7px;
     float: left;
+    border-left: 1px solid gray;
 }
 
 #breadcrumb .selected{
     background-color: white;
     color: black;
-    border-left: 1px solid gray;
 }
 
 #breadcrumb .unselected{
     color: white !important;
-    border-left: 1px solid gray;
 }
 
 #breadcrumb .unselected:hover{
     color: black !important;
     background-color: white;
-    border: 1px solid gray;
 }
 
 /* stylise product page */
