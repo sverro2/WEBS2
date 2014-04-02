@@ -176,6 +176,7 @@ menu {
 /* stylise product page */
 
 .product #media{
+    margin-top: 6px;
     float:left;
     margin-right:20px;
     width:300px;
