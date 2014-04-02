@@ -120,3 +120,21 @@ $(document).ready(
 
     }
 );	
+
+    
+function print_crumbs(crumbs){
+    console.log(crumbs);
+    $('menu').append('<div id="breadcrumb"></div>');
+    for(var i in crumbs)
+    {
+        var crumb = crumbs[i];
+        var url = crumb.url;
+        var text = crumb.text;
+        if(!url)
+        {
+            $('#breadcrumb').append('<div class="selected">&gt; ' + crumb.text + '</div>');
+        }else{
+          $('#breadcrumb').append('<a href="' + crumb['url'] + '"><div class="unselected">&gt; ' + crumb['text'] + '</div></a>');
+        }
+    }
+}

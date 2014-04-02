@@ -54,6 +54,8 @@ class Structure{
     }
     
     private function print_crumbs($crumbs){
+        echo "<script>print_crumbs(" . json_encode($crumbs) . ")</script>";
+        /*
         echo '<div id="breadcrumb">' . PHP_EOL;
         foreach ($crumbs as $crumb){            
             if(empty($crumb['url'])){
@@ -66,7 +68,7 @@ class Structure{
             
         }
         echo '</div>' . PHP_EOL;
-        
+        */
     }
     
     public function display_breadcrumbs($current_url){
