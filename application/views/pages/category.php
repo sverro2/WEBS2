@@ -21,6 +21,15 @@
 		echo "<b>" . $search['results'] . "</b> search results found for \"<b>" . $search['term'] . "</b>\"";
 		 } ?></span>
 	<?php
+
+        if($_SESSION['shopping_cart']->is_admin()){
+        	echo PHP_EOL . "<div class='productrow'>";
+			echo PHP_EOL . "<a href='?route=admin/product_add' class='productlink'>";
+			echo PHP_EOL . "<img src='img/product_add.png' class='thumb'>";
+			echo "<div class='description'><h1>New</h1>Add a new product!</div>";
+			echo PHP_EOL . "</a></div>";
+        }
+
 		if(is_array($product_array) && count($product_array) > 0){
 			foreach($product_array as $row)
 			{
