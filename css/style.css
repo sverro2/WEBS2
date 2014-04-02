@@ -92,7 +92,9 @@ menu {
     width:250px;
     float: left;
     height:500px;
+    position:relative;
 }
+
 .categoryimage h1{
     color:white;
     font-size: 40px;
@@ -100,12 +102,34 @@ menu {
     opacity: 0.7;
     text-align:center;
     width:100%;
+    text-decoration: none
 }
 
 .categoryimage:hover h1{
     color:#333;
     background-color: white;
 	
+}
+
+.categoryimage .link{
+    text-decoration: none;
+    height:500px;
+    width: 250px;
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.categoryimage .edit{
+    color:white;
+    font-size: 40px;
+    background-color: #FF6600;
+    opacity: 0.7;
+    text-align:center;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    z-index:1;
 }
 
 #catleft{
@@ -310,7 +334,7 @@ menu {
 /* css to style the menu */
 
 .nav {
-    z-index: 1;
+    z-index: 10;
     list-style: none;
     position: relative;
     list-style: none;
@@ -375,4 +399,13 @@ menu {
 
 #searchmsg b{
     font-weight:bold;
+}
+
+.productrow .edit{
+    background:19px url('../img/editicon.png');
+    height:19px;
+    width:19px;
+    margin:5px;
+    position:absolute;
+    z-index: 1;
 }

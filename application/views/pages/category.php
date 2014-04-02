@@ -1,3 +1,7 @@
+<?php
+	$admin = $_SESSION['shopping_cart']->is_admin();
+?>
+
 <div id="catleft">
 	<div class="cat_container">
 		<div id="backbutton"> <h1><< BACK</h1> </div>
@@ -22,7 +26,7 @@
 		 } ?></span>
 	<?php
 
-        if($_SESSION['shopping_cart']->is_admin()){
+        if($admin){
         	echo PHP_EOL . "<div class='productrow'>";
 			echo PHP_EOL . "<a href='?route=admin/product_add' class='productlink'>";
 			echo PHP_EOL . "<img src='img/product_add.png' class='thumb'>";
@@ -34,16 +38,20 @@
 			foreach($product_array as $row)
 			{
 				echo PHP_EOL . "<div class='productrow'>";
+				if($admin){
+					echo "<a class='edit' href='?route=admin/product_edit/" . $row['id'] . "'></a>";
+				}
 				echo PHP_EOL . "<a href='?route=category/product/" . $row['id'] . "' class='productlink'>";
 				echo PHP_EOL . "<img src='img/" . $row['defaultimage'] . "' class='thumb'>";
 				echo "<div class='description'><h1>" . $row['title'] . "</h1>" . $row['fullname'] . "</div>";
-				echo "<div class='price'><h1>&euro;" . $row['price'] . "</h1> ";
-                                echo "</div></a>";
-                                echo '<a href="#" class="add_item_to_shoppingcart" data-product="' . $row['id'] . '">';
-                                if($is_in_cart[$row['id']]){echo 'Added to cart';} 
-                                elseif ($is_in_stock[$row['id']]==0) {echo 'Sorry, Out of stock';} 
-                                else {echo 'Add to shoppingcart';} 
-                                echo "</a>";
+				echo "<div class='price'>"; 
+				echo "<h1>&euro;" . $row['price'] . "</h1> ";
+                echo "</div></a>";
+                echo '<a href="#" class="add_item_to_shoppingcart" data-product="' . $row['id'] . '">';
+                if($is_in_cart[$row['id']]){echo 'Added to cart';} 
+                elseif ($is_in_stock[$row['id']]==0) {echo 'Sorry, Out of stock';} 
+                else {echo 'Add to shoppingcart';} 
+                echo "</a>";
 				echo PHP_EOL . "</div>";
 			}
 		}

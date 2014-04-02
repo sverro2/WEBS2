@@ -1,17 +1,27 @@
+<?php
+    $admin = $_SESSION['shopping_cart']->is_admin();
+?>
 <div class="centered_inline_block">
     <div id="cat_container">
         <?php
             foreach ($menu_array as $row){
 
-                echo PHP_EOL . "<a href='?route=category/show/" . $row['url'] . "' class='menuitem' data-page='pages/category.php' data-parameter='" . $row['id'] . "'>";
+                
                 echo PHP_EOL . "<div class='categoryimage' style='background-image: url(" . $row['thumbnail'] . ")'>";
+                echo PHP_EOL . "<a href='?route=category/show/" . $row['url'] . "' class='menuitem link' data-page='pages/category.php' data-parameter='" . $row['id'] . "'>";
+                
                 echo PHP_EOL . "<h1>" . $row['label'] . "</h1>";
-                echo PHP_EOL . "</div>";
                 echo PHP_EOL . "</a>";
+                if($admin){
+                    echo "<a href='?route=admin/product_edit/" . $row['id'] . "'>";
+                    echo PHP_EOL . "<h1 class='edit'>edit</h1>";
+                    echo PHP_EOL . "</a>";
+                }
+                echo PHP_EOL . "</div>";
 
             }
 
-            if($_SESSION['shopping_cart']->is_admin())
+            if($admin)
             {
                 echo PHP_EOL . "<a href='?route=admin/category_add' class='menuitem' data-page='pages/category.php' data-parameter='" . $row['id'] . "'>";
                 echo PHP_EOL . "<div class='categoryimage' style='background-image: url(img/addcategory.png)'>";
