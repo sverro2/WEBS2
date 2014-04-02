@@ -1,5 +1,5 @@
 If you like to be an admin, you should first login!
-<?php print_r(get_defined_vars()); ?>
+
 <form>
     <table>
         <tr>

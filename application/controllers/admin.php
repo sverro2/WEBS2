@@ -3,8 +3,7 @@ class admin extends controller {
         
     function is_logged_in(){
         $loged_in = $_SESSION['shopping_cart']->is_admin();
-        echo $loged_in;
-        exit;
+        
         if(!$loged_in){
             $cred = $this->loadModel("model_login")->get_admin_account_credentials();
             $this->LoadView("editors/login", $cred);
