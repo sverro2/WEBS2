@@ -16,8 +16,8 @@ class session {
     private $cart = array();
 
     //setters
-    public function set_admin(){
-        $this->is_admin = true;
+    public function set_admin($bool){
+        $this->is_admin = $bool;
     }
     
     public function set_accountinfo($id, $name){
@@ -32,15 +32,6 @@ class session {
             }
         }
         
-    }
-    
-    /**
-     * adds a new experience (one by one)
-     */
-    public function add_experience_id($experience){
-        if(!in_array($experience, $this->experience)){
-            $this->experience[] = $experience;
-        }
     }
     
     //getters

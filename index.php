@@ -3,7 +3,28 @@
     session_start();
     //session_destroy();
     //print_r($_SESSION['shopping_cart']->get_cart());
-    //$_SESSION['shopping_cart']->add_cart(5);
+    
+    $uri = array();
+    if( isset( $_GET['route'] ) ){ 
+        $array_tmp_uri = preg_split('[\\/]', $_GET['route'], -1, PREG_SPLIT_NO_EMPTY);
+        $uri['controller'] = @ $array_tmp_uri[0];
+        $uri['method']     = @ $array_tmp_uri[1];
+        $uri['var']        = @ $array_tmp_uri[2];
+    }
+    else{
+        $uri['controller'] = "home";
+        $uri['method']     = "index"; 
+        $uri['var']        = ""; 
+    }
+    
+    if($uri['controller'] == 'admin'){
+        if(!isset($uri['method'])){
+            $uri['method'] = "index";
+        }
+        
+        $show_admin = true;
+    }
+    
 ?>
 <!DOCTYPE html>
 
@@ -33,18 +54,7 @@
             <div id="content">
                 <?php 
                     $menu_creator->display_breadcrumbs($_SERVER['REQUEST_URI']);
-                    $uri = array();
-                    if( isset( $_GET['route'] ) ){ 
-                        $array_tmp_uri = preg_split('[\\/]', $_GET['route'], -1, PREG_SPLIT_NO_EMPTY);
-                        $uri['controller'] = @ $array_tmp_uri[0];
-                        $uri['method']     = @ $array_tmp_uri[1];
-                        $uri['var']        = @ $array_tmp_uri[2];
-                    }
-                    else{
-                        $uri['controller'] = "home";
-                        $uri['method']     = "index"; 
-                        $uri['var']        = ""; 
-                    }
+                    
                     //Load config and base 
                     require_once("application/base.php"); 
                     $application = new application( $uri );
