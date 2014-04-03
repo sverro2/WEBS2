@@ -1,5 +1,10 @@
 <?php
-    $admin = $_SESSION['shopping_cart']->is_admin();
+    if(isset($_SESSION['shopping_cart']))
+    {
+        $admin = $_SESSION['shopping_cart']->is_admin();
+    }else{
+        $admin=false;
+    }
 ?>
 <div class="centered_inline_block">
     <div id="cat_container">
