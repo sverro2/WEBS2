@@ -36,6 +36,8 @@ $(document).ready(
             console.log(val);
             console.log("hoi");
         });
+        
+        
 
         $('#content').on('click', '.mediavid', function() {
             var url = $(this).data('url');
