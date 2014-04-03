@@ -24,7 +24,6 @@
 	</div>
 </div>
 <div id="catmain">
-	<form action="application/models/upload.php" id="catimg_form" method="post" enctype="multipart/form-data">
 	<?php
 		if(isset($menu_array))
 		{
@@ -33,7 +32,8 @@
        		echo "<input type='text' placeholder='Name' id='cat_edit_namefield'/><br/>";
   	}
    	?>
-                <input type="file" name="file" id="catimg"><br>
-                <input id="catimg_submit" type="submit" name="submit" value="Submit">
+	<form action="application/models/upload.php" id="catimg_form" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="catimg"><br>
 	</form>
+       <input id="catimg_submit" type="submit" name="submit" value="Submit">
 </div>

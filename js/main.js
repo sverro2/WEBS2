@@ -31,13 +31,14 @@ $(document).ready(
             $('#cat_title').text($('#cat_edit_namefield').val());
         });
 
-        $('#content').on('change', '#catimg', function() {
-            var val = $('#catimg').val();
-            console.log(val);
-            console.log("hoi");
+        $('#content').on('click', '#catimg_submit', function() {
+            var img = $('#catimg').val();
+            img = "img/" + (img.replace(/^.*[\\\/]/, ''));
+            console.log(img);
+            $('#catimg_form').ajaxForm(function(){
+                $('.categoryimage').attr('style', 'background-image: url(' + img + ')');
+            }).submit();
         });
-        
-        
 
         $('#content').on('click', '.mediavid', function() {
             var url = $(this).data('url');
