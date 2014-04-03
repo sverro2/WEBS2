@@ -13,11 +13,11 @@
 		<?php
 		if(isset($menu_array))
 		{
-       		echo "<div class='categoryimage' style='background-image: url(" . $menu_array['thumbnail'] . ")'>";
-       		echo "<h1 id='cat_title'>" . $menu_array['label'] . "</h1>";
+       		echo "<div class='categoryimage' style='background-image: url(" . $menu_array['thumbnail'] . ")' data-img='" . $menu_array['thumbnail'] . "'>";
+       		echo "<h1 id='cat_title' data-title='" . $menu_array['label'] . "'>" . $menu_array['label'] . "</h1>";
        	}else{
-       		echo "<div class='categoryimage' style='background-image: url(img/addcategory.png)'>";
-       		echo "<h1 id='cat_title'>New</h1>";
+       		echo "<div class='categoryimage' style='background-image: url(img/defaultcategory.png)' data-img='defaultcategory.png'>";
+       		echo "<h1 id='cat_title' data-title='New'>New</h1>";
        	}
    		?>
        		</div>
@@ -28,12 +28,16 @@
 		if(isset($menu_array))
 		{
        		echo "<input type='text' placeholder='Name' id='cat_edit_namefield' value='" . $menu_array['label'] . "'/><br/>";
+          echo "<input type='text' placeholder='url' id='cat_edit_urlfield' value='" . $menu_array['url'] . "'/><br/>";
        	}else{
        		echo "<input type='text' placeholder='Name' id='cat_edit_namefield'/><br/>";
+          echo "<input type='text' placeholder='url' id='cat_edit_urlfield'/><br/>";
   	}
    	?>
 	<form action="application/models/upload.php" id="catimg_form" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" id="catimg"><br>
+        <input type="file" name="file" id="catimg">
 	</form>
-       <input id="catimg_submit" type="submit" name="submit" value="Submit">
+   	<input id="catimg_submit" type="submit" name="submit" value="Upload">
+   	<br/>
+	<input id="cat_save" type="submit" name="submit" value="Save">
 </div>

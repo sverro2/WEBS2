@@ -26,11 +26,11 @@ class admin extends controller {
     }
 
     private function category(){
-        if(!$this->is_logged_in()) return false;            //check if user had been logged in!!!
+        if(!$this->is_logged_in()) return true;            //check if user had been logged in!!!
     }
     
     public function add_category(){
-        $this->category();
+        if($this->category()){return false;};
         $this->loadView("editors/category_editor");
     }
     
@@ -39,8 +39,9 @@ class admin extends controller {
     }
     
     public function edit_category($category){
-        $this->category();
+        if($this->category()){return false;};
         $categories_sql_string = "SELECT * FROM category WHERE id = " . $category . " limit 1";
+        echo "<script>console.log('" . $categories_sql_string . "')</script>";
         $connection = new Database("sbrettsc_db");
         $menu_array = $connection->get_array_from_query($categories_sql_string);
         $data = array("menu_array"=>array_shift($menu_array));
