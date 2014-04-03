@@ -31,6 +31,7 @@ class admin extends controller {
     
     public function add_category(){
         $this->category();
+        $this->loadView("editors/category_editor");
     }
     
     public function remove_category(){
@@ -39,12 +40,12 @@ class admin extends controller {
     
     public function edit_category($category){
         $this->category();
-        $categories_sql_string = "SELECT * FROM category";
+        $categories_sql_string = "SELECT * FROM category WHERE id = " . $category . " limit 1";
         $connection = new Database("sbrettsc_db");
         $menu_array = $connection->get_array_from_query($categories_sql_string);
-        $data = array("menu_array"=>$menu_array);
+        $data = array("menu_array"=>array_shift($menu_array));
         
-        $this->loadView("editors/category_editor");
+        $this->loadView("editors/category_editor", $data);
     }
     
     private function product(){

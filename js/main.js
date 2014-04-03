@@ -27,6 +27,16 @@ $(document).ready(
             $('#mainmedia').html("<img id='mainimg' src='" + url + "'>");
         });
 
+        $('#content').on('change', '#cat_edit_namefield', function() {
+            $('#cat_title').text($('#cat_edit_namefield').val());
+        });
+
+        $('#content').on('change', '#catimg', function() {
+            var val = $('#catimg').val();
+            console.log(val);
+            console.log("hoi");
+        });
+
         $('#content').on('click', '.mediavid', function() {
             var url = $(this).data('url');
             console.log('vid');
