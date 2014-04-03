@@ -60,6 +60,7 @@ $(document).ready(
                 type: 'post',
                 success: function(output) 
                 {
+                    //alert(output);
                     window.location.href = "index.php?route=admin/edit_category/" + output;
                     //alert("The item is added to your shoppingcart!" + output);
                     //location.reload();
@@ -68,6 +69,11 @@ $(document).ready(
                     alert(thrownError);
                 }
             });
+        });
+
+        $('#content').on('click', '#cat_delete', function() {
+            var id = $('#cat_delete').attr("data-id");
+             window.location.href="index.php?route=admin/delete_category/" + id;
         });
 
         $('#content').on('click', '.mediavid', function() {

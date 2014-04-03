@@ -38,4 +38,10 @@ if (isset($menu_array)) {
     <input id="catimg_submit" type="submit" name="submit" value="Upload">
     <br/>
     <input id="cat_save" type="submit" name="submit" value="Save">
+    <br />
+    <?php
+    if (isset($menu_array)) {
+      echo "<input id='cat_delete' type='submit' name='submit' value='delete' data-id='" . $menu_array['id'] . "'>";
+    }
+    ?>
 </div>
