@@ -28,16 +28,44 @@ $(document).ready(
         });
 
         $('#content').on('change', '#cat_edit_namefield', function() {
-            $('#cat_title').text($('#cat_edit_namefield').val());
+            var title = $('#cat_edit_namefield').val();
+            $('#cat_title').attr('data-title', title);
+            $('#cat_title').text(title);
         });
 
         $('#content').on('click', '#catimg_submit', function() {
             var img = $('#catimg').val();
-            img = "img/" + (img.replace(/^.*[\\\/]/, ''));
-            console.log(img);
+            img = (img.replace(/^.*[\\\/]/, ''));
             $('#catimg_form').ajaxForm(function(){
-                $('.categoryimage').attr('style', 'background-image: url(' + img + ')');
+                if(img != ""){
+                    $('.categoryimage').attr('data-img', img);
+                    $('.categoryimage').attr('style', 'background-image: url(img/' + img + ')');
+                }
             }).submit();
+        });
+
+        $('#content').on('click', '#cat_save', function() {
+            console.log();
+            console.log();
+            var title = $('#cat_title').attr('data-title');
+            var img = $('.categoryimage').attr('data-img');
+            img = (img.replace(/^.*[\\\/]/, ''));
+            var url = $('#cat_edit_urlfield').val();
+            $.ajax(
+            {    
+                url: 'application/models/save_category.php',
+                data: {title: title, image: img, url: url},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    window.location.href = "index.php?route=admin/edit_category/" + output;
+                    //alert("The item is added to your shoppingcart!" + output);
+                    //location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
         });
 
         $('#content').on('click', '.mediavid', function() {
@@ -136,7 +164,6 @@ $(document).ready(
 
     
 function print_crumbs(crumbs){
-    console.log(crumbs);
     $('menu').append('<div id="breadcrumb"></div>');
     for(var i in crumbs)
     {
