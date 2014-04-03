@@ -35,8 +35,10 @@ $(document).ready(
             var img = $('#catimg').val();
             img = "img/" + (img.replace(/^.*[\\\/]/, ''));
             console.log(img);
-            $('#catimg_form').ajaxForm(function(){
-                $('.categoryimage').attr('style', 'background-image: url(' + img + ')');
+            $('#catimg_form').ajaxForm(function(NIEUW){
+                alert(NIEUW);
+                $('.categoryimage').attr('style', 'background-image: url("' + img + '")');
+                
             }).submit();
         });
 
