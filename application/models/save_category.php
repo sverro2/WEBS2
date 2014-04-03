@@ -8,15 +8,10 @@
 		$img = "defaultcategory.png";
 	}
 	$url = $_POST['url'];
-
-	$exists_query = "SELECT * FROM category WHERE label = '" . $title . "' LIMIT 1";
-	$exists_results = $connection->get_array_from_query($exists_query);
+	$id = $_POST['id'];
 	$query = "";
-	$id = 0;
-	if(isset($exists_results) && count($exists_results) > 0){
-		$category = array_shift($exists_results);
-		$query = "UPDATE category(label, thumbnail) SET ('" .$title . "', 'img/" . $img . "') WHERE id = " . $category['id'];
-		$id = $category['id'];
+	if($id != 0){
+		$query = "UPDATE category SET label='" .$title . "', url='" . $url . "', thumbnail='img/" . $img . "' WHERE id = " . $id;
 	}else{
 		$query = "INSERT INTO category(label, url, thumbnail) VALUES ('" .$title . "', '" . $url . "', 'img/" . $img . "')";
 	}

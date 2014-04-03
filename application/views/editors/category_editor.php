@@ -13,10 +13,10 @@
 		<?php
 		if(isset($menu_array))
 		{
-       		echo "<div class='categoryimage' style='background-image: url(" . $menu_array['thumbnail'] . ")' data-img='" . $menu_array['thumbnail'] . "'>";
+       		echo "<div class='categoryimage' style='background-image: url(" . $menu_array['thumbnail'] . ")' data-img='" . $menu_array['thumbnail'] . "' data-id=" . $menu_array['id'] . ">";
        		echo "<h1 id='cat_title' data-title='" . $menu_array['label'] . "'>" . $menu_array['label'] . "</h1>";
        	}else{
-       		echo "<div class='categoryimage' style='background-image: url(img/defaultcategory.png)' data-img='defaultcategory.png'>";
+       		echo "<div class='categoryimage' style='background-image: url(img/defaultcategory.png)' data-img='defaultcategory.png' data-id=0>";
        		echo "<h1 id='cat_title' data-title='New'>New</h1>";
        	}
    		?>

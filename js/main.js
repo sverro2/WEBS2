@@ -49,12 +49,13 @@ $(document).ready(
             console.log();
             var title = $('#cat_title').attr('data-title');
             var img = $('.categoryimage').attr('data-img');
+            var id = $('.categoryimage').attr('data-id');
             img = (img.replace(/^.*[\\\/]/, ''));
             var url = $('#cat_edit_urlfield').val();
             $.ajax(
             {    
                 url: 'application/models/save_category.php',
-                data: {title: title, image: img, url: url},                                //set article amount to one.
+                data: {title: title, image: img, url: url, id: id},                                //set article amount to one.
                 type: 'post',
                 success: function(output) 
                 {
