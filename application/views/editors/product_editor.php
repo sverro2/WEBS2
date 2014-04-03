@@ -1,69 +1,41 @@
 <?php
-    if(isset($_SESSION['shopping_cart']))
-    {
-        $admin = $_SESSION['shopping_cart']->is_admin();
-    }else{
-        $admin=false;
-    }
+if (isset($_SESSION['shopping_cart'])) {
+    $admin = $_SESSION['shopping_cart']->is_admin();
+} else {
+    $admin = false;
+}
 ?>
 
-<div class="product">
-
-	<div id="media">
-        Edit page:    
-	<?php 
-		echo "<div id='mainmedia'><img src='img/" . $image . "' id='mainimg'></div><br/>";
-		echo "<img src='img/" . $image . "' class='mediathumb mediaimg' data-url='img/" . $image . "'>";
-		foreach($product_images_array as $row)
-		{
-			echo "<img src='img/" . $row['url'] . "' class='mediathumb mediaimg' data-url='img/" . $row['url'] . "'>";
-		}
-		foreach($product_videos_array as $row)
-		{
-			echo "<img src='http://img.youtube.com/vi/" . $row['url'] . "/2.jpg' class='mediathumb mediavid' data-url='" . $row['url'] . "'>";
-		}
-	?>
-	</div>
-
-
-	<div id="details">
-		<h1><?php echo $title; ?></h1>
-		<h2><?php echo $fullname; ?></h2>
-		<h1 id="price">&euro;<?php echo $price; ?></h1>
-                <?php
-                echo '<a href="#" class="add_item_to_shoppingcart" data-product="' . $product_id . '">';
-                                if($added_to_cart){echo 'Added to cart';} 
-                                elseif ($stock==0) {echo 'Sorry, Out of stock';} 
-                                else {echo 'Add to shoppingcart';} 
-                                echo "</a>";
-                                ?>
-		<p id="availability">
-			<?php
-				if($stock < 1)
-				{
-					echo "<span id='nostock'>out of stock</span>";
-				}else if($stock < 20){
-					echo "<span id='limitstock'>limited stock</span>";
-				}else{
-					echo "<span id='fullstock'>large stock</span>";
-				}
-			?>
-		</p>
-
-		<h1>Description</h1>
-		<p id="description">
-		<?php echo $description; ?>
-		</p>
-
-		<h1>Features</h1>
-		<ul>
-			<?php
-				foreach($product_specs_array as $row)
-				{
-					echo "<li>" . $row['spec'] . ": " . $row['spec_value'] . "</li>";
-				}
-			?>
-		</ul>
-
-	</div>
+<div id="catleft">
+    <div class="cat_container">
+        <div id="backbutton"> <h1><< BACK</h1> </div>
+        <?php
+        if (isset($menu_array)) {
+            echo '<div class="categoryimage" style="background-image: url(' . "'" . $menu_array['thumbnail'] . "')" . '"';
+            echo " data-img='" . $menu_array['thumbnail'] . "' data-id=" . $menu_array['id'] . ">";
+            echo "<h1 id='cat_title' data-title='" . $menu_array['label'] . "'>" . $menu_array['label'] . "</h1>";
+        } else {
+            echo "<div class='categoryimage' style='background-image: url(img/defaultcategory.png)' data-img='defaultcategory.png' data-id=0>";
+            echo "<h1 id='cat_title' data-title='New'>New</h1>";
+        }
+        ?>
+    </div>
+</div>
+</div>
+<div id="catmain">
+    <?php
+    if (isset($menu_array)) {
+        echo "<input type='text' placeholder='Name' id='cat_edit_namefield' value='" . $menu_array['label'] . "'/><br/>";
+        echo "<input type='text' placeholder='url' id='cat_edit_urlfield' value='" . $menu_array['url'] . "'/><br/>";
+    } else {
+        echo "<input type='text' placeholder='Name' id='cat_edit_namefield'/><br/>";
+        echo "<input type='text' placeholder='url' id='cat_edit_urlfield'/><br/>";
+    }
+    ?>
+    <form action="application/models/upload.php" id="catimg_form" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="catimg">
+    </form>
+    <input id="catimg_submit" type="submit" name="submit" value="Upload">
+    <br/>
+    <input id="cat_save" type="submit" name="submit" value="Save">
 </div>

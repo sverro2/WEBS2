@@ -51,7 +51,7 @@ $(document).ready(
             var title = $('#cat_title').attr('data-title');
             var img = $('.categoryimage').attr('data-img');
             var id = $('.categoryimage').attr('data-id');
-            img = (img.replace(/^.*[\\\/]/ , ''));
+            img = (img.replace(/^.*[\\\/]/, ''));
             var url = $('#cat_edit_urlfield').val();
             $.ajax(
             {    

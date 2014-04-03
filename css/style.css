@@ -108,7 +108,7 @@ menu {
 .categoryimage:hover h1{
     color:#333;
     background-color: white;
-	
+
 }
 
 .categoryimage .link{
@@ -133,9 +133,9 @@ menu {
 }
 
 #catleft{
-	float:left;
-	margin-right:15px;
-        height:100%;
+    float:left;
+    margin-right:15px;
+    height:100%;
 }
 
 #catmain a{
@@ -143,7 +143,7 @@ menu {
     color:black;
 }
 #catmain{
-        margin-left: 350px;
+    margin-left: 350px;
 }
 
 #backbutton h1{
@@ -159,7 +159,7 @@ menu {
     background-color: white;
     background-color: #616161;
     cursor: pointer;
-    
+
 }
 #backbutton{
     text-decoration: none;
@@ -205,10 +205,10 @@ menu {
     margin-right:20px;
     width:300px;
     text-align: justify;
-        
+
 }
 .product #media img{
-    
+
     width:300px;
     height:300px;
     border: 1px gray solid;
@@ -221,13 +221,13 @@ menu {
 }
 
 .product #media .thumb{
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .product #media #mainimg{
-	width:300px;
-	height:300px;
-	border: 1px gray solid;
+    width:300px;
+    height:300px;
+    border: 1px gray solid;
 }
 
 .product #details{
@@ -247,9 +247,9 @@ menu {
 }
 
 .thumb{
-	width:90px;
-	height:90px;
-	border: 1px gray solid;
+    width:90px;
+    height:90px;
+    border: 1px gray solid;
 }
 
 .product #details #availability{
@@ -288,28 +288,28 @@ menu {
 }
 
 .productrow{
-	padding-top:5px;
-	padding-right:15px;
-	border-bottom:1px gray solid;
-	text-align: left;
-	height: 110px;
+    padding-top:5px;
+    padding-right:15px;
+    border-bottom:1px gray solid;
+    text-align: left;
+    height: 110px;
 }
 .productrow .thumb{
-	padding:5px;
-	margin-right:20px;
-	float:left;
-	clear:right;
+    padding:5px;
+    margin-right:20px;
+    float:left;
+    clear:right;
 }
 .productrow .description{
-	padding:5px;
+    padding:5px;
 }
 .productrow .price{
     padding:5px;
     float:right;
 }
 .productrow h1{
-	font-weight: bold;
-	font-size:25px;
+    font-weight: bold;
+    font-size:25px;
 }
 
 .add_item_to_shoppingcart{
@@ -328,7 +328,7 @@ menu {
 .add_item_to_shoppingcart:hover{
     color: #333333 !important;
     background: white;
-    
+
 }
 
 /* css to style the menu */
@@ -377,11 +377,11 @@ menu {
     padding: 7px 8px;
     color: #fff;
     text-decoration: none;
-        
+
 }
 
 .nav ul li a{
-        
+
     border-right: gray solid 1px;
     border-left: gray solid 1px;
     border-bottom: gray solid 1px;
