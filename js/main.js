@@ -45,6 +45,41 @@ $(document).ready(
             }).submit();
         });
 
+        $('#content').on('click', '#aboutedit', function() {
+            var text = $('#abouttext').html();
+            var regex = /<br\s*[\/]?>/gi;
+            text = text.replace(regex, "\n");
+            text = text.trim();
+            $('#abouttext').html("<textarea id='abouteditor'>" + text + "</textarea>");
+            $('#abouttext').append("<input type='submit' value='Cancel' id='aboutcancel'/>");
+            $('#abouttext').append("<input type='submit' value='Save' id='aboutsave'/>");
+        });
+        $('#content').on('click', '#aboutsave', function() {
+            var text = $('#abouteditor').val();
+            text = text.trim();
+            $.ajax(
+            {    
+                url: 'application/models/save_about.php',
+                data: {text: text},           
+                type: 'post',
+                success: function(output) 
+                {
+                    location.reload();
+                    //alert("The item is added to your shoppingcart!" + output);
+                    //location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+
+        });
+        $('#content').on('click', '#aboutcancel', function() {
+            location.reload();
+        });
+
+
+
         $('#content').on('click', '#cat_save', function() {
             console.log();
             console.log();

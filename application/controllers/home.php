@@ -29,6 +29,14 @@ class home extends controller {
 	}
         
         function about(){
-            $this->LoadView("pages/about");
+            $about_query = "SELECT * FROM texts WHERE name = 'about' LIMIT 1";
+
+            $connection = new Database("sbrettsc_db");
+
+            $about_array = $connection->get_array_from_query($about_query);
+            $data = array_shift($about_array);
+
+            $data = array("about"=>$data);
+            $this->LoadView("pages/about", $data);
         }
 }
