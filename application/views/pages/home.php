@@ -12,7 +12,9 @@
             foreach ($menu_array as $row){
 
                 
-                echo PHP_EOL . "<div class='categoryimage' style='background-image: url(" . $row['thumbnail'] . ")'>";
+                echo PHP_EOL . '<div class="categoryimage" style="background-image: url(';
+                echo "'" . $row['thumbnail'] . "')";
+                echo '">';
                 echo PHP_EOL . "<a href='?route=category/show/" . $row['url'] . "' class='menuitem link' data-page='pages/category.php' data-parameter='" . $row['id'] . "'>";
                 
                 echo PHP_EOL . "<h1>" . $row['label'] . "</h1>";

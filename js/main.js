@@ -38,7 +38,7 @@ $(document).ready(
 
             img = (img.replace(/^.*[\\\/]/, ''));
             $('#catimg_form').ajaxForm(function(){
-                if(img != ""){
+                if(img !== ""){
                     $('.categoryimage').attr('data-img', img);
                     $('.categoryimage').attr('style', 'background-image: url("img/' + img + '")');
                 }
@@ -51,7 +51,7 @@ $(document).ready(
             var title = $('#cat_title').attr('data-title');
             var img = $('.categoryimage').attr('data-img');
             var id = $('.categoryimage').attr('data-id');
-            img = (img.replace(/^.*[\\\/]/, ''));
+            img = (img.replace(/^.*[\\\/]/ , ''));
             var url = $('#cat_edit_urlfield').val();
             $.ajax(
             {    

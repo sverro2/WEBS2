@@ -18,7 +18,9 @@
 		    echo PHP_EOL . "<img src='" . $category_data['thumbnail'] . "'>";
 		    echo PHP_EOL . "</div>";
             */
-            echo PHP_EOL . "<div class='categoryimage' style='background-image: url(" . $category_data['thumbnail'] . ")'>";
+            echo PHP_EOL . '<div class="categoryimage" style="background-image: url(';
+            echo "'" . $category_data['thumbnail'] . "')";
+            echo '">';
             echo PHP_EOL . "<h1>" . $category_data['label'] . "</h1>";
             echo PHP_EOL . "</div>";
 
