@@ -28,15 +28,16 @@ if ((($_FILES["file"]["type"] == "image/gif")
         }
         else
         {
-          move_uploaded_file($_FILES["file"]["tmp_name"],
+            $status = move_uploaded_file($_FILES["file"]["tmp_name"],
           "../../img/" . $_FILES["file"]["name"]);
-          echo "Stored in: " . "img/" . $_FILES["file"]["name"];
+            chmod("../../img/" . $_FILES["file"]["name"], 0755);
+            return true;
         }
     }
 }
-  else
-    {
-    echo "Invalid file";
-    echo $_FILES["file"]["type"]. " aasdf";
-    }
+else
+{
+    echo "Your file has to be smaller than 20kB and has to be an png, jpg or gif!";
+    return false;
+}
 ?>
