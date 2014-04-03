@@ -35,11 +35,12 @@ $(document).ready(
 
         $('#content').on('click', '#catimg_submit', function() {
             var img = $('#catimg').val();
+
             img = (img.replace(/^.*[\\\/]/, ''));
             $('#catimg_form').ajaxForm(function(){
                 if(img != ""){
                     $('.categoryimage').attr('data-img', img);
-                    $('.categoryimage').attr('style', 'background-image: url(img/' + img + ')');
+                    $('.categoryimage').attr('style', 'background-image: url("img/' + img + '")');
                 }
             }).submit();
         });
