@@ -31,7 +31,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Aperture Science</title>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.form.min.js"></script>
