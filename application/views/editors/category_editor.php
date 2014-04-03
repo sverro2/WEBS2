@@ -1,5 +1,10 @@
 <?php
-	$admin = $_SESSION['shopping_cart']->is_admin();
+    if(isset($_SESSION['shopping_cart']))
+    {
+        $admin = $_SESSION['shopping_cart']->is_admin();
+    }else{
+        $admin=false;
+    }
 ?>
 
 <div id="catleft">
@@ -19,6 +24,7 @@
 	</div>
 </div>
 <div id="catmain">
+	<form action="application/models/upload.php" id="catimg_form" method="post" enctype="multipart/form-data">
 	<?php
 		if(isset($menu_array))
 		{
@@ -27,8 +33,7 @@
        		echo "<input type='text' placeholder='Name' id='cat_edit_namefield'/><br/>";
   	}
    	?>
-	<form action="upload_file.php" id="catimg_form" method="post">
-		<input type="file" name="file" id="catimg">
+                <input type="file" name="file" id="catimg"><br>
+                <input id="catimg_submit" type="submit" name="submit" value="Submit">
 	</form>
-	<input id="catimg_submit" type="submit" name="submit" value="Submit">
 </div>

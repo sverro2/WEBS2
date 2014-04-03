@@ -1,3 +1,12 @@
+<?php
+    if(isset($_SESSION['shopping_cart']))
+    {
+        $admin = $_SESSION['shopping_cart']->is_admin();
+    }else{
+        $admin=false;
+    }
+?>
+
 <div class="product">
 
 	<div id="media">
