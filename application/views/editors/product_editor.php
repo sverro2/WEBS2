@@ -6,6 +6,7 @@ if (isset($_SESSION['shopping_cart'])) {
     echo "You need to login first!";
     exit;
 }
+print_r(get_defined_vars());
 ?>
 
 <div id="catleft">
@@ -37,8 +38,12 @@ if (isset($_SESSION['shopping_cart'])) {
                 <td>
                     <select id = "category_input">
                         <?php
+                        echo '<option value = "' . $vars['category'] . '">' . $vars['category'] . '</option>' . PHP_EOL;
+                        
                         foreach ($vars['categories'] as $category) {
-                            echo '<option value = "' . $category['label'] . '">' . $category['label'] . '</option>' . PHP_EOL;
+                            if($category != $vars['category']){
+                                echo '<option value = "' . $category['label'] . '">' . $category['label'] . '</option>' . PHP_EOL;
+                            }
                         }
                         ?>
                     </select>
