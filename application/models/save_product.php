@@ -24,6 +24,9 @@ class productsave {
                 case 'set_specification':
                     $this->set_specification($this->input_array->set_specification);
                     break;
+                case 'remove_spec':
+                    $this->remove_spec($this->input_array->remove_spec);
+                    break;
                 default:
                     echo 'Error: action ' . $key . ' is not known!';
             }
@@ -60,9 +63,7 @@ class productsave {
             $already_existed=false;
             
             if($exists[0]['c'] != 0){
-                echo 'spec bestaat';
                 $id = $exists[0]['id'];
-                echo $id;
                 $already_existed=true;
             }else{
                 $this->connection->do_sql("
@@ -76,14 +77,19 @@ class productsave {
                 }
             }
             
-            if($already_existed){
-                $double = $this->check_specs_product($base->id, $base->spec);
-                if($double){
-                    $query_update_value = "";
-                }
-                echo $double . " ENDED";
+            if($already_existed && $this->check_specs_product($base->id, $base->spec)){
+                $query_update_value = "
+                    UPDATE product_specification
+                    SET spec_value = '" . $base->value . "'
+                    WHERE product_id=" . $base->id . " AND spec_id=" . $id . ";";
+                $this->connection->do_sql($query_update_value);
             }else{
-                
+                $query_add_specification = "
+                    INSERT INTO product_specification (product_id, spec_id, spec_value)
+                    VALUES (" . $base->id . ", " . $id . ", '" . $base->value . "');";
+                $this->connection->do_sql($query_add_specification);
+                echo 'Spec and value have been added!';
+                echo 'Value of spec has been updated\n';
             }
         }else{
             echo "No specification set (missing arguments spec/value)";
@@ -93,8 +99,9 @@ class productsave {
     private function get_spec_id($string){
         $spec_exists_query = "SELECT id FROM specification WHERE spec='" . $string . "';";
         $id = $this->connection->get_array_from_query($spec_exists_query);
+        $return_value = $id[0]['id'];
         
-        return $id;
+        return $return_value;
     }
     
     private function check_specs_product($product_id, $spec){
@@ -113,6 +120,16 @@ class productsave {
             return false;
         }
         
+    }
+    
+    private function remove_spec($base){
+        $id = $this->get_spec_id($base->spec);
+        
+        $spec_remove_query = "
+            DELETE FROM product_specification
+            WHERE product_id=" . $base->id . " AND spec_id=" . $id . ";";
+        $this->connection->do_sql($spec_remove_query);
+        echo "Specification is removed!";
     }
 
 }

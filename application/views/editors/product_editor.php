@@ -71,7 +71,7 @@ if (isset($_SESSION['shopping_cart'])) {
                     <td>Remove</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="spec_table">
                 <?php
                 foreach ($vars['product_specs_array'] as $specdata) {
                     echo "<tr data-id='" . $vars['product_id'] . "'>" . PHP_EOL;

@@ -242,11 +242,48 @@ $(document).ready(
                 success: function(output) 
                 {
                     alert(output);
+                    $('#spec_table').append("\
+                        <tr data-id='" + save_product['set_specification']['id'] + 
+                            "'><td>" + save_product['set_specification']['spec'] + 
+                            "</td><td>" + save_product['set_specification']['value'] + 
+                            "</td><td><a href='#' title='Remove spec'>X</a></td></tr>");
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert("Could not save specification: " + thrownError);
                 }
             });
+        });
+        
+        //verwijderen van spec
+        $(document).on('click' , "#spec_table a", function(event){
+            event.preventDefault();
+            var head = $(this).closest('tr')
+            var id = head.data('id');
+            var spec = head.children(':first').text();
+            var upload_info = {};
+            upload_info['id'] = id;
+            upload_info['spec'] = spec;
+            
+            var save_product = {};
+            save_product['remove_spec'] = upload_info;
+            console.log(save_product);
+            
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                    head.remove();
+                    console.log('It wants to remove');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not remove spec: " + thrownError);
+                }
+            });
+            
         });
         
         /*code to upload stuff*/
