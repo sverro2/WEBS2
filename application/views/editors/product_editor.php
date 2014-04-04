@@ -16,7 +16,7 @@ if (isset($_SESSION['shopping_cart'])) {
         <form action="application/models/upload.php" id="product_thumb_form" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="thumbupload">
         </form>
-        <input id="thumb_submit" type="submit" name="submit" value="Upload Thumbnail">
+        <input id="thumb_submit" type="submit" name="submit" data-id="<?= $vars['product_id']?>" value="Upload Thumbnail">
     </div>
 </div>
 
@@ -172,5 +172,8 @@ if (isset($_SESSION['shopping_cart'])) {
         <h2>Add an Video (paste Youtube URL)</h2>
         <input type="text" id="video_input"><br>
         <input type="submit" id="submit_video" value="Add Video">
+    </div>
+    <div class="editrow">
+        <input type="submit" data-id="<?=$vars['product_id']?>" id="remove_submit" value="Remove Product">
     </div>
 </div>

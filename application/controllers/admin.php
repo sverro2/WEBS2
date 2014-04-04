@@ -10,8 +10,8 @@ class admin extends controller {
         }
 
         if (!$loged_in) {
-            $cred = $this->loadModel("model_login")->get_admin_account_credentials();
-            $this->LoadView("editors/login", $cred);
+            //$cred = $this->loadModel("model_login")->get_admin_account_credentials();
+            $this->LoadView("editors/login");
             return false;
         } else {
             return true;
