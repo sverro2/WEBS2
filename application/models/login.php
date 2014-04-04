@@ -1,4 +1,13 @@
 <?php
+        ini_set('display_errors',1);
+	require_once("database.class.php"); 
+        require_once("session.class.php"); 
+
+        session_start();
+        $_SESSION['shopping_cart']->is_admin();
+        if(!isset($_SESSION['shopping_cart'])){
+            $_SESSION['shopping_cart'] = new session();
+        }
 	if(isset($_POST)){
 		echo "yup";
 	}else{
@@ -7,7 +16,7 @@
 	$name = $_POST["username"];
 	$pass = sha1($_POST["password"]);
 
-	require_once("database.class.php"); 
+        
 	$connection = new Database("sbrettsc_db");
 
 	$query = "SELECT * FROM users WHERE name = '" . $name . "' LIMIT 1";

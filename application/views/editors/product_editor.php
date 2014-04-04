@@ -173,4 +173,7 @@ if (isset($_SESSION['shopping_cart'])) {
         <input type="text" id="video_input"><br>
         <input type="submit" id="submit_video" value="Add Video">
     </div>
+    <div class="editrow">
+        <input type="submit" data-id="<?=$vars['product_id']?>" id="remove_submit" value="Remove Product">
+    </div>
 </div>

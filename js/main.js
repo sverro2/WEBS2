@@ -296,6 +296,12 @@ $(document).ready(
             
         });
         
+        //remove product
+        $('#remove_submit').click(function(){
+            var id = $(this).data('id');
+            
+        });
+        
         /*code to upload stuff*/
         function upload_information(product_id){
             var upload_info = {};
