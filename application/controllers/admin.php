@@ -35,16 +35,12 @@ class admin extends controller {
     }
 
     public function add_category() {
-        if ($this->category()) {
-            return false;
-        };
+        $this->category();
         $this->loadView("editors/category_editor");
     }
 
     public function delete_category($id) {
-        if ($this->category()) {
-            return false;
-        };
+        $this->category();
 
         $connection = new Database("sbrettsc_db");
         $connection->do_sql("DELETE FROM category WHERE id = " . $id);
@@ -53,9 +49,7 @@ class admin extends controller {
     }
 
     public function edit_category($category) {
-        if ($this->category()) {
-            return false;
-        };
+        $this->category();
         $categories_sql_string = "SELECT * FROM category WHERE id = " . $category . " limit 1";
         $connection = new Database("sbrettsc_db");
         $menu_array = $connection->get_array_from_query($categories_sql_string);
