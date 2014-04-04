@@ -8,14 +8,14 @@ if (isset($_SESSION['shopping_cart'])) {
 }
 ?>
 
-<div id="catleft">
-    <div class="cat_container">
-        <div id="backbutton"> <h1><< BACK</h1> </div>
-        <?php
-        if (isset($vars['image'])) {
-            echo '<div class="categoryimage" style="background-image: url(' . "'img/" . $vars['image'] . "')" . '"></div>';
-        }
-        ?>
+<div id="media">
+    <div class="editrow">
+        <h1>Product Thumbnail</h1>
+        <img src="img/<?= $vars['image'] ?>" id="thumbnailimage" alt="thumbnail">
+        <form action="application/models/upload.php" id="product_thumb_form" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="thumbupload">
+        </form>
+        <input id="thumb_submit" type="submit" name="submit" value="Upload Thumbnail">
     </div>
 </div>
 
@@ -55,14 +55,6 @@ if (isset($_SESSION['shopping_cart'])) {
         <h1>Product Description</h1>
         <textarea id="description"><?= $vars['description'] ?></textarea><br>
         <input type="submit" value="Save Description">
-    </div>
-    <div class="editrow">
-        <h1>Product Thumbnail</h1>
-        <img src="img/<?= $vars['image'] ?>" id="thumbnailimage" alt="thumbnail">
-        <form action="application/models/upload.php" id="product_thumb_form" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="thumbupload">
-        </form>
-        <input id="thumb_submit" type="submit" name="submit" value="Upload Thumbnail">
     </div>
     <div class="editrow">
         <h1>Product Features</h1>
