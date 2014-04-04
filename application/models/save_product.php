@@ -57,7 +57,7 @@ class productsave {
             UPDATE product
             SET description='" . $this->connector->real_escape_string($base->description) . "'
             WHERE id = " . $base->id . ";");
-        print_r($base);
+        echo 'Description is Saved!';
     }
     
     private function set_specification($base){
@@ -93,7 +93,6 @@ class productsave {
                     VALUES (" . $base->id . ", " . $id . ", '" . $base->value . "');";
                 $this->connection->do_sql($query_add_specification);
                 echo 'Spec and value have been added!';
-                echo 'Value of spec has been updated\n';
             }
         }else{
             echo "No specification set (missing arguments spec/value)";

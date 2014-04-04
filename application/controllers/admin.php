@@ -76,8 +76,10 @@ class admin extends controller {
     }
 
     //add product view
-    public function add_product() {
+    public function product_add() {
         $this->product();
+        $id = $this->loadModel('new_product')->create_new_product();
+        $this->edit_product($id);
     }
 
     //remove product view
