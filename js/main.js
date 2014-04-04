@@ -191,8 +191,6 @@ $(document).ready(
         $('#information_submit').click(function(){
             var save_product = {};
             save_product['upload_info'] = upload_information($(this).data('id'));
-            console.log(save_product);
-            console.log(JSON.stringify(save_product));  
             $.ajax(
             {    
                 url: 'application/models/save_product.php',
@@ -252,6 +250,18 @@ $(document).ready(
                     alert("Could not save specification: " + thrownError);
                 }
             });
+        });
+        
+        //thumbnail
+        $('#thumb_submit').click(function() {
+            var img = $('#thumbupload').val();
+            var id = $(this).data('id');
+            img = (img.replace(/^.*[\\\/]/, ''));
+            $('#product_thumb_form').ajaxForm(function(){
+                if(img !== ""){
+                    setProductImage(id, img);
+                }
+            }).submit();
         });
         
         //verwijderen van spec
@@ -316,6 +326,29 @@ $(document).ready(
             
             console.log(upload_info);
             return upload_info;
+        }
+        
+        function setProductImage(product_id, img){
+            var upload_info = {}
+            upload_info['id'] = product_id;
+            upload_info['img'] = img;
+            
+            var save_product = {};
+            save_product['save_thumbnail'] = upload_info;
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                    $('#thumbnailimage').attr('src', "img/" + img);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not save image: " + thrownError);
+                }
+            });
         }
         
 

@@ -27,6 +27,9 @@ class productsave {
                 case 'remove_spec':
                     $this->remove_spec($this->input_array->remove_spec);
                     break;
+                case 'save_thumbnail':
+                    $this->set_thumbnail($this->input_array->save_thumbnail);
+                    break;
                 default:
                     echo 'Error: action ' . $key . ' is not known!';
             }
@@ -130,6 +133,16 @@ class productsave {
             WHERE product_id=" . $base->id . " AND spec_id=" . $id . ";";
         $this->connection->do_sql($spec_remove_query);
         echo "Specification is removed!";
+    }
+    
+    public function set_thumbnail($base){
+        echo $base->img;
+        
+        $this->connection->do_sql("
+            UPDATE product
+            SET defaultimage='" . $base->img ."'
+            WHERE id=" . $base->id . ";");
+        echo "Updated image";
     }
 
 }

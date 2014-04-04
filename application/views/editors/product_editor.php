@@ -16,7 +16,7 @@ if (isset($_SESSION['shopping_cart'])) {
         <form action="application/models/upload.php" id="product_thumb_form" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="thumbupload">
         </form>
-        <input id="thumb_submit" type="submit" name="submit" value="Upload Thumbnail">
+        <input id="thumb_submit" type="submit" name="submit" data-id="<?= $vars['product_id']?>" value="Upload Thumbnail">
     </div>
 </div>
 
