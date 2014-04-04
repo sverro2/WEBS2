@@ -1,6 +1,8 @@
 <?php
+//model to handle product procedures
 class model_product extends model {
 
+    //get product data for view
     function get_details( $id ){
         $product_id = $id;
         $product_query = "SELECT * FROM category JOIN product on product.category_id = category_id WHERE product.id = " . $product_id . " LIMIT 1;";
@@ -39,6 +41,7 @@ class model_product extends model {
         );
     }
 
+    //search for a product and return data for view
     function search($pat){
         require_once("application/models/database.class.php"); 
         $connection = new Database("sbrettsc_db");

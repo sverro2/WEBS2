@@ -1,7 +1,7 @@
 <?php
-
+//controller for admin processes
 class admin extends controller {
-
+    //all admin actions will refer to this method, which will redirect the user to a login screen if he is not logged in as an admin
     public function is_logged_in() {
         if(isset($_SESSION['shopping_cart'])){
             $loged_in = $_SESSION['shopping_cart']->is_admin();
@@ -17,7 +17,7 @@ class admin extends controller {
             return true;
         }
     }
-
+    //index page that will redirect you to the login screen if you are not an admin
     public function index() {
         if (!$this->is_logged_in())
             return false;            //check if user had been logged in!!!
@@ -30,6 +30,7 @@ class admin extends controller {
         $this->LoadView("pages/home", $data);
     }
 
+    //a procedure for all category functions to check if the user is an admin
     private function category() {
         if ($this->is_logged_in()){
             return true;            //check if user had been logged in!!!
@@ -38,11 +39,13 @@ class admin extends controller {
         }
     }
 
+    //move to the add category page
     public function add_category() {
         $this->category();
         $this->loadView("editors/category_editor");
     }
 
+    //delete a category and redirect to index
     public function delete_category($id) {
         $this->category();
 
@@ -52,6 +55,7 @@ class admin extends controller {
 
     }
 
+    //load the category edit page
     public function edit_category($category) {
         $this->category();
         $categories_sql_string = "SELECT * FROM category WHERE id = " . $category . " limit 1";
@@ -62,6 +66,7 @@ class admin extends controller {
         $this->loadView("editors/category_editor", $data);
     }
 
+    //same as category, function for all products
     private function product() {
         if ($this->is_logged_in()){
             return true;            //check if user had been logged in!!!
@@ -70,14 +75,17 @@ class admin extends controller {
         }
     }
 
+    //add product view
     public function add_product() {
         $this->product();
     }
 
+    //remove product view
     public function remove_product() {
         $this->product();
     }
 
+    //edit product view
     public function edit_product($product) {
         $this->product();
         $categories_sql_string = "SELECT * FROM category";

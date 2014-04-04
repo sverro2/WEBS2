@@ -1,9 +1,5 @@
 <?php
-	if(isset($_POST)){
-		echo "yup";
-	}else{
-		echo "nope";
-	}
+	//login procedure
 	$name = $_POST["username"];
 	$pass = sha1($_POST["password"]);
 

@@ -1,6 +1,8 @@
 <?php
+//controller for misc pages
 class home extends controller {
 
+    //home page
 	function index()
 	{
             $categories_sql_string = "SELECT * FROM category";
@@ -12,6 +14,7 @@ class home extends controller {
             $this->LoadView("pages/home", $data);
 	}
 
+    //shopping cart view
 	function shoppingcart(){
 		$cart = @ $_SESSION['shopping_cart'];
                 $data = array();
@@ -27,16 +30,17 @@ class home extends controller {
                 
 		$this->LoadView("pages/cart",$data);
 	}
-        
-        function about(){
-            $about_query = "SELECT * FROM texts WHERE name = 'about' LIMIT 1";
+    
+    //about page view
+    function about(){
+        $about_query = "SELECT * FROM texts WHERE name = 'about' LIMIT 1";
 
-            $connection = new Database("sbrettsc_db");
+        $connection = new Database("sbrettsc_db");
 
-            $about_array = $connection->get_array_from_query($about_query);
-            $data = array_shift($about_array);
+        $about_array = $connection->get_array_from_query($about_query);
+        $data = array_shift($about_array);
 
-            $data = array("about"=>$data);
-            $this->LoadView("pages/about", $data);
-        }
+        $data = array("about"=>$data);
+        $this->LoadView("pages/about", $data);
+    }
 }

@@ -1,6 +1,8 @@
 <?php
+//model to do category related actions
 class model_category extends model {
 
+	//get data needed to display a category
 	function get_all_by_url( $url ){
 
         require_once("application/models/database.class.php"); 

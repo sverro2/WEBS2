@@ -1,4 +1,5 @@
 <?php
+//ajax call to save product data
 ini_set('display_errors',1);
 require_once("database.class.php");
 new productsave;

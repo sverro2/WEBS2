@@ -1,4 +1,5 @@
 <?php
+	//ajax call to save the about page content
 	require_once("database.class.php"); 
 	$connection = new Database("sbrettsc_db");
 

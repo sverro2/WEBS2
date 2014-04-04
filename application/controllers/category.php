@@ -1,9 +1,12 @@
 <?php
+//controller for categories and pages in it
 class category extends controller {
+    //redirect to home page
     function index(){
         $this->redirect('home/index');
     }
 
+    //show a category based on a category url
     function show($url)
     {
 
@@ -30,6 +33,7 @@ class category extends controller {
         }
     }
 
+    //show a product based on its id
     function product($id)
     {
             $data = $this->LoadModel("model_product")->get_details($id);
@@ -44,6 +48,7 @@ class category extends controller {
             }
     }
 
+    //search based on a pattern in the form of a string
     function search($pat)
     {
         $cart = @ $_SESSION['shopping_cart'];

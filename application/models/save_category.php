@@ -1,4 +1,5 @@
 <?php
+	//ajax call to save category data
 	require_once("database.class.php"); 
 	$connection = new Database("sbrettsc_db");
 
