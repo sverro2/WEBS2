@@ -7,11 +7,11 @@
 		echo "<img src='img/" . $image . "' class='mediathumb mediaimg' data-url='img/" . $image . "'>";
 		foreach($product_images_array as $row)
 		{
-			echo "<img src='img/" . $row['url'] . "' class='mediathumb mediaimg' data-url='img/" . $row['url'] . "'>";
+			echo "<img src='img/" . $row['url'] . "' alt='product image' class='mediathumb mediaimg' data-url='img/" . $row['url'] . "'>";
 		}
 		foreach($product_videos_array as $row)
 		{
-			echo "<img src='http://img.youtube.com/vi/" . $row['url'] . "/2.jpg' class='mediathumb mediavid' data-url='" . $row['url'] . "'>";
+			echo "<img src='http://img.youtube.com/vi/" . $row['url'] . "/2.jpg' alt='youtube video' class='mediathumb mediavid' data-url='" . $row['url'] . "'>";
 		}
 	?>
 	</div>

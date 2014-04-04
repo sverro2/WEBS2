@@ -8,7 +8,7 @@ if (isset($_SESSION['shopping_cart'])) {
 
 <div id="catleft">
     <div class="cat_container">
-        <div id="backbutton"> <h1><< BACK</h1> </div>
+        <div id="backbutton"> <h1>&lt;&lt; BACK</h1> </div>
         <?php
         /*
           echo PHP_EOL . "<div class='categoryimage'>";
@@ -34,7 +34,7 @@ if (isset($_SESSION['shopping_cart'])) {
     if ($admin) {
         echo PHP_EOL . "<div class='productrow'>";
         echo PHP_EOL . "<a href='?route=admin/product_add' class='productlink'>";
-        echo PHP_EOL . "<img src='img/product_add.png' class='thumb'>";
+        echo PHP_EOL . "<img src='img/product_add.png' alt='new product' class='thumb'>";
         echo "<div class='description'><h1>New</h1>Add a new product!</div>";
         echo PHP_EOL . "</a></div>";
     }
@@ -46,7 +46,7 @@ if (isset($_SESSION['shopping_cart'])) {
                 echo "<a class='edit' href='?route=admin/edit_product/" . $row['id'] . "'></a>";
             }
             echo PHP_EOL . "<a href='?route=category/product/" . $row['id'] . "' class='productlink'>";
-            echo PHP_EOL . "<img src='img/" . $row['defaultimage'] . "' class='thumb'>";
+            echo PHP_EOL . "<img src='img/" . $row['defaultimage'] . "' alt='" . $row['title'] . "' class='thumb'>";
             echo "<div class='description'><h1>" . $row['title'] . "</h1>" . $row['fullname'] . "</div>";
             echo "<div class='price'>";
             echo "<h1>&euro;" . $row['price'] . "</h1> ";
