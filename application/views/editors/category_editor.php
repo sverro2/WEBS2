@@ -3,6 +3,8 @@ if (isset($_SESSION['shopping_cart'])) {
     $admin = $_SESSION['shopping_cart']->is_admin();
 } else {
     $admin = false;
+    echo "You need to login first!";
+    exit;
 }
 ?>
 

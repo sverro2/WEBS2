@@ -43,7 +43,7 @@ if (isset($_SESSION['shopping_cart'])) {
         foreach ($product_array as $row) {
             echo PHP_EOL . "<div class='productrow'>";
             if ($admin) {
-                echo "<a class='edit' href='?route=admin/product_edit/" . $row['id'] . "'></a>";
+                echo "<a class='edit' href='?route=admin/edit_product/" . $row['id'] . "'></a>";
             }
             echo PHP_EOL . "<a href='?route=category/product/" . $row['id'] . "' class='productlink'>";
             echo PHP_EOL . "<img src='img/" . $row['defaultimage'] . "' class='thumb'>";

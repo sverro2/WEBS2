@@ -47,7 +47,6 @@ $(document).ready(
 
         $('#content').on('click', '#cat_save', function() {
             console.log();
-            console.log();
             var title = $('#cat_title').attr('data-title');
             var img = $('.categoryimage').attr('data-img');
             var id = $('.categoryimage').attr('data-id');

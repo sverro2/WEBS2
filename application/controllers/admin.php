@@ -27,8 +27,11 @@ class admin extends controller {
     }
 
     private function category() {
-        if (!$this->is_logged_in())
+        if ($this->is_logged_in()){
             return true;            //check if user had been logged in!!!
+        }else{
+            exit;
+        }
     }
 
     public function add_category() {
@@ -47,7 +50,6 @@ class admin extends controller {
             return false;
         };
         $categories_sql_string = "SELECT * FROM category WHERE id = " . $category . " limit 1";
-        echo "<script>console.log('" . $categories_sql_string . "')</script>";
         $connection = new Database("sbrettsc_db");
         $menu_array = $connection->get_array_from_query($categories_sql_string);
         $data = array("menu_array" => array_shift($menu_array));
@@ -56,8 +58,11 @@ class admin extends controller {
     }
 
     private function product() {
-        if (!$this->is_logged_in())
-            return false;            //check if user had been logged in!!!
+        if ($this->is_logged_in()){
+            return true;            //check if user had been logged in!!!
+        }else{
+            exit;
+        }
     }
 
     public function add_product() {
@@ -70,9 +75,15 @@ class admin extends controller {
 
     public function edit_product($product) {
         $this->product();
-        $data = $this->LoadModel("model_product")->get_details($id);
-
-        $this->loadView("editors/product_editor");
+        $categories_sql_string = "SELECT * FROM category";
+        $specifications_sql_string = "SELECT * FROM specification";
+        $connection = new Database("sbrettsc_db");
+        $categories = $connection->get_array_from_query($categories_sql_string);
+        $specifications = $connection->get_array_from_query($specifications_sql_string);
+        $data = $this->LoadModel("model_product")->get_details($product);
+        $data['categories'] = $categories;
+        $data['speclist'] = $specifications;
+        $this->loadView("editors/product_editor", $data);
     }
 
 }

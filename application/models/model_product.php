@@ -4,7 +4,7 @@ class model_product extends model {
     function get_details( $id ){
         $product_id = $id;
         $product_query = "SELECT * FROM product WHERE id = " . $product_id . " LIMIT 1";
-        $spec_query = "SELECT spec, spec_value FROM product_specification AS ps JOIN specification AS s ON ps.spec_id = s.id WHERE product_id = " . $product_id;
+        $spec_query = "SELECT spec, spec_value, spec_id FROM product_specification AS ps JOIN specification AS s ON ps.spec_id = s.id WHERE product_id = " . $product_id;
         $img_query = "SELECT url FROM image WHERE product_id = " . $product_id;
         $yt_query = "SELECT url FROM youtube WHERE product_id = " . $product_id;
 
