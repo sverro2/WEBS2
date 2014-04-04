@@ -6,7 +6,7 @@ if (isset($_SESSION['shopping_cart'])) {
     echo "You need to login first!";
     exit;
 }
-print_r(get_defined_vars());
+//print_r(get_defined_vars());
 ?>
 
 <div id="media">
@@ -59,7 +59,7 @@ print_r(get_defined_vars());
     <div class="editrow">
         <h1>Product Description</h1>
         <textarea id="description"><?= $vars['description'] ?></textarea><br>
-        <input type="submit" value="Save Description">
+        <input type="submit" id="submit_description" data-id="<?=$vars['product_id']?>" value="Save Description">
     </div>
     <div class="editrow">
         <h1>Product Features</h1>
@@ -98,7 +98,7 @@ print_r(get_defined_vars());
             <tbody>
                 <tr>
                     <td>
-                        <input type="text" id="spec_field" list="speclist">
+                        <input type="text" id="spec_input" list="speclist">
                         <datalist id="speclist">
                             <?php
                             foreach ($vars['speclist'] as $spec) {
@@ -107,8 +107,8 @@ print_r(get_defined_vars());
                             ?>
                         </datalist> 
                     </td>
-                    <td><input type="text" id="spec_value_field"></td>
-                    <td><a href="#" title="Add specification to product" id="submit_new_spec">Add</a></td>
+                    <td><input type="text" id="spec_value_input"></td>
+                    <td><a href="#" data-id="<?=$vars['product_id']?>" title="Add specification to product" id="spec_submit">Add</a></td>
                 </tr>
             </tbody>
         </table>
@@ -143,7 +143,7 @@ print_r(get_defined_vars());
         <form action="application/models/upload.php" id="product_image_form" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="imageupload">
         </form>
-        <input id="image_submit" type="submit" name="submit" value="Upload Image">
+        <input id="image_submit" type="submit" data-id="<?=$vars['product_id']?>" name="submit" value="Upload Image">
     </div>
     <div class="editrow">
         <h1>Product Videos</h1>

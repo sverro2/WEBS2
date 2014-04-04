@@ -200,10 +200,51 @@ $(document).ready(
                 type: 'post',
                 success: function(output) 
                 {
-                    alert("Info " + output);
+                    alert(output);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert("Could not add the item to your cart: " + thrownError);
+                    alert("Could not save product information: " + thrownError);
+                }
+            });
+        });
+        
+        $('#submit_description').click(function(){
+            var save_product = {};
+            save_product['upload_description'] = upload_description($('#submit_description').data('id'));
+            console.log(save_product);
+            console.log(JSON.stringify(save_product));  
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not save description: " + thrownError);
+                }
+            });
+        });
+        
+        $('#spec_submit').click(function(event){
+            event.preventDefault();
+            var save_product = {};
+            save_product['set_specification'] = upload_spec($(this).data('id'));
+            console.log(save_product);
+            console.log(JSON.stringify(save_product));  
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not save specification: " + thrownError);
                 }
             });
         });
@@ -215,6 +256,25 @@ $(document).ready(
             upload_info['fullName'] = $('#full_name_input').val();
             upload_info['category'] = $('#category_input').val();
             upload_info['price'] = $('#price_input').val();
+            upload_info['id'] = product_id;
+            
+            console.log(upload_info);
+            return upload_info;
+        }
+        
+        function upload_description(product_id){
+            var upload_info = {};
+            upload_info['description'] = $('#description').val();
+            upload_info['id'] = product_id;
+            
+            console.log(upload_info);
+            return upload_info;
+        }
+        
+        function upload_spec(product_id){
+            var upload_info = {};
+            upload_info['spec'] = $('#spec_input').val();
+            upload_info['value'] = $('#spec_value_input').val();
             upload_info['id'] = product_id;
             
             console.log(upload_info);

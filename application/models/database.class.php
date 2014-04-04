@@ -25,6 +25,10 @@ class Database {
     public function do_sql($query) {
         $this->result = $this->my_sqli_connect->query($query);
     }
+    
+    public function get_connection(){
+        return $this->my_sqli_connect;
+    }
 
     public function get_array_from_query($query) {
         $this->result = $this->my_sqli_connect->query($query);

@@ -3,7 +3,7 @@ class model_product extends model {
 
     function get_details( $id ){
         $product_id = $id;
-        $product_query = "SELECT * FROM product JOIN category on category_id = product.id WHERE product.id = " . $product_id . " LIMIT 1";
+        $product_query = "SELECT * FROM category JOIN product on product.category_id = category_id WHERE product.id = " . $product_id . " LIMIT 1;";
         $spec_query = "SELECT spec, spec_value, spec_id FROM product_specification AS ps JOIN specification AS s ON ps.spec_id = s.id WHERE product_id = " . $product_id;
         $img_query = "SELECT url FROM image WHERE product_id = " . $product_id;
         $yt_query = "SELECT url FROM youtube WHERE product_id = " . $product_id;
@@ -16,19 +16,18 @@ class model_product extends model {
         $product_images_array = $connection->get_array_from_query($img_query);
         $product_videos_array = $connection->get_array_from_query($yt_query);
         $product_data = array_shift($product_data_array);
-
         $image = $product_data['defaultimage'];
         $title = $product_data['title'];
         $price = $product_data['price'];
         $fullname = $product_data['fullname'];
         $description = $product_data['description'];
         $stock = $product_data['stock'];
-        $category = $product_data['label'];
+        $label = $product_data['label'];
 
         return array(
             "product_id" => $id,
             "image"=>$image,
-            "category"=>$category,
+            "category"=>$label,
             "title"=>$title,
             "price"=>$price,
             "fullname"=>$fullname,
