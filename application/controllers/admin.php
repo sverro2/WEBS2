@@ -41,8 +41,15 @@ class admin extends controller {
         $this->loadView("editors/category_editor");
     }
 
-    public function remove_category() {
-        $this->category();
+    public function delete_category($id) {
+        if ($this->category()) {
+            return false;
+        };
+
+        $connection = new Database("sbrettsc_db");
+        $connection->do_sql("DELETE FROM category WHERE id = " . $id);
+        $this->index();
+
     }
 
     public function edit_category($category) {

@@ -8,6 +8,9 @@
 		$img = "defaultcategory.png";
 	}
 	$url = $_POST['url'];
+	if($url == ""){
+		$url = preg_replace('/[^A-Za-z0-9\-]/', '', $title);
+	}
 	$id = $_POST['id'];
 	$query = "";
 	if($id != 0){
@@ -18,7 +21,7 @@
 	$connection->do_sql($query);
 	if($id == 0)
 	{
-		$cat_data = $connection->get_array_from_query($exists_query);
+		$cat_data = $connection->get_array_from_query("SELECT * FROM category WHERE label = '" . $title . "'");
 		$category = array_shift($cat_data);
 		$id = $category['id'];
 	}
