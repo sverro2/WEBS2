@@ -184,22 +184,43 @@ $(document).ready(
 
             }
         });
-
-        /*
-        $('#content').on('click', '.productlink', function() {
-            var id = $(this).data('product');
-            console.log('vid');
-            $('#content').empty();
-            $('#content').load('pages/product.php',{id: id})
+        
+        //all javascript to edit a product
+        
+        /*code for button events*/
+        $('#information_submit').click(function(){
+            var save_product = {};
+            save_product['upload_info'] = upload_information($(this).data('id'));
+            console.log(save_product);
+            console.log(JSON.stringify(save_product));  
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert("Info " + output);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not add the item to your cart: " + thrownError);
+                }
+            });
         });
-        //test code
-		$('.menuitem').click(function(){
-            var page = $(this).data('page');
-            var param = $(this).data('parameter');
-			$('#content').empty();
-			$('#content').load(page, {'parameter': param});
-		});
-        */
+        
+        /*code to upload stuff*/
+        function upload_information(product_id){
+            var upload_info = {};
+            upload_info['title'] = $('#title_input').val();
+            upload_info['fullName'] = $('#full_name_input').val();
+            upload_info['category'] = $('#category_input').val();
+            upload_info['price'] = $('#price_input').val();
+            upload_info['id'] = product_id;
+            
+            console.log(upload_info);
+            return upload_info;
+        }
+        
 
     }
 );	

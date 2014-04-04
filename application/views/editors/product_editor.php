@@ -26,16 +26,16 @@ if (isset($_SESSION['shopping_cart'])) {
         <table>
             <tr>
                 <td>Title:</td>
-                <td><input type="text" id="cat_edit_namefield" value="<?= $vars['title'] ?>"></td>
+                <td><input type="text" id="title_input" value="<?= $vars['title'] ?>"></td>
             </tr>
             <tr>
                 <td>Full Name:</td>
-                <td><input type="text"  id="full_name" value="<?= $vars['fullname'] ?>"></td>
+                <td><input type="text"  id="full_name_input" value="<?= $vars['fullname'] ?>"></td>
             </tr>
             <tr>
                 <td>Category:</td>
                 <td>
-                    <select id = "myList">
+                    <select id = "category_input">
                         <?php
                         foreach ($vars['categories'] as $category) {
                             echo '<option value = "' . $category['label'] . '">' . $category['label'] . '</option>' . PHP_EOL;
@@ -46,10 +46,10 @@ if (isset($_SESSION['shopping_cart'])) {
             </tr>
             <tr>
                 <td>Price (&euro;):</td>
-                <td><input type="text"  id="price" value="<?= $vars['price'] ?>"></td>
+                <td><input type="text"  id="price_input" value="<?= $vars['price'] ?>"></td>
             </tr>
         </table>
-        <input type="submit" value="Save Information">
+        <input type="submit" data-id="<?=$vars['product_id']?>" id="information_submit" value="Save Information">
     </div>
     <div class="editrow">
         <h1>Product Description</h1>

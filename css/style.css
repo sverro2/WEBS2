@@ -129,6 +129,7 @@ menu {
     color:white;
     font-size: 40px;
     background-color: #FF6600;
+    cursor: crosshair;
     opacity: 0.7;
     text-align:center;
     width:100%;
@@ -306,7 +307,7 @@ textarea{
 }
 
 .editrow{
-    padding: 5px 10px 5px 10px;
+    padding: 20px 10px 20px 10px;
     border-bottom:1px gray solid;
     text-align: left;
 }
@@ -453,6 +454,7 @@ table{
     height:19px;
     width:19px;
     margin:5px;
+    cursor: crosshair;
     position:absolute;
     z-index: 1;
 }
