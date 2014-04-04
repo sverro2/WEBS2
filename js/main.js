@@ -299,7 +299,26 @@ $(document).ready(
         //remove product
         $('#remove_submit').click(function(){
             var id = $(this).data('id');
+            var upload_info= {};
+            upload_info['id'] = id;
             
+            var save_product= {};
+            save_product['remove_product'] = upload_info;
+            
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                    window.location.href = 'index.php';
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not remove spec: " + thrownError);
+                }
+            });
         });
         
         /*code to upload stuff*/

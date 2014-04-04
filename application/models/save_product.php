@@ -31,6 +31,9 @@ class productsave {
                 case 'save_thumbnail':
                     $this->set_thumbnail($this->input_array->save_thumbnail);
                     break;
+                case 'remove_product':
+                    $this->remove_product($this->input_array->remove_product);
+                    break;
                 default:
                     echo 'Error: action ' . $key . ' is not known!';
             }
@@ -143,6 +146,14 @@ class productsave {
             SET defaultimage='" . $base->img ."'
             WHERE id=" . $base->id . ";");
         echo "Updated image";
+    }
+    
+    public function remove_product($base){
+        $query_spec_remove = "DELETE FROM product_specification WHERE product_id=" . $base->id . ";";
+        $query_remove = "DELETE FROM product WHERE id = " . $base->id . ";";
+        $this->connection->do_sql($query_spec_remove);
+        $this->connection->do_sql($query_remove);
+        echo 'This product has been removed!';
     }
 
 }
