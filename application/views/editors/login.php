@@ -1,6 +1,6 @@
 If you like to be an admin, you should first login!
 
-<form>
+<form action="application/models/login.php" method="post">
     <table>
         <tr>
             <td>Username</td>
@@ -8,7 +8,7 @@ If you like to be an admin, you should first login!
         </tr>
         <tr>
             <td>Password</td>
-            <td><input type="password"></td>
+            <td><input type="password" name="password"></td>
         </tr>
     </table>
     <input type="submit" value="Login">
