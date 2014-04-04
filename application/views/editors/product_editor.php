@@ -125,10 +125,10 @@ if (isset($_SESSION['shopping_cart'])) {
                     <td>Remove</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="image_table" data-id="<?=$vars['product_id']?>">
                 <?php
                 foreach($vars['product_images_array'] as $image){
-                    echo "<tr>" . PHP_EOL;
+                    echo "<tr data-url='" . $image['url'] . "'>" . PHP_EOL;
                     echo '<td><img src="img/' . $image['url'] . '"  width="90" height="90"></td>';
                     echo '<td>'.$image['url'].'</td>';
                     echo '<td><a href="#" class="remove_image">X</a></td>';

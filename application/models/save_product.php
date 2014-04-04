@@ -31,6 +31,12 @@ class productsave {
                 case 'save_thumbnail':
                     $this->set_thumbnail($this->input_array->save_thumbnail);
                     break;
+                case 'save_image':
+                    $this->set_image($this->input_array->save_image);
+                    break;
+                case 'remove_image':
+                    $this->remove_image($this->input_array->remove_image);
+                    break;
                 case 'remove_product':
                     $this->remove_product($this->input_array->remove_product);
                     break;
@@ -146,6 +152,20 @@ class productsave {
             SET defaultimage='" . $base->img ."'
             WHERE id=" . $base->id . ";");
         echo "Updated image";
+    }
+    
+    public function set_image($base){
+        echo $base->img;
+        $this->connection->do_sql("
+            INSERT INTO image (product_id, url)
+            VALUE (" . $base->id . ", '" . $base->img . "');");
+        echo "Uploaded image";
+    }
+    
+    public function remove_image($base){
+        $delete_image_query = "DELETE FROM image WHERE url='". $base->img ."' and product_id=" . $base->id . ";";
+        $this->connection->do_sql($delete_image_query);
+        echo 'The image is removed!';
     }
     
     public function remove_product($base){

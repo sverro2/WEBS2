@@ -264,6 +264,18 @@ $(document).ready(
             }).submit();
         });
         
+        //image submit
+        $('#image_submit').click(function() {
+            var img = $('#imageupload').val();
+            var id = $(this).data('id');
+            img = (img.replace(/^.*[\\\/]/, ''));
+            $('#product_image_form').ajaxForm(function(){
+                if(img !== ""){
+                    setProductImages(id, img);
+                }
+            }).submit();
+        });
+        
         //verwijderen van spec
         $(document).on('click' , "#spec_table a", function(event){
             event.preventDefault();
@@ -375,6 +387,69 @@ $(document).ready(
                 }
             });
         }
+        
+        function setProductImages(product_id, img){
+            console.log(product_id, img);
+            
+            var upload_info = {}
+            upload_info['id'] = product_id;
+            upload_info['img'] = img;
+            
+            var save_product = {};
+            save_product['save_image'] = upload_info;
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                    $('#image_table').append("\
+                        <tr data-url='" + img + "'><td><img src='img/" + img + 
+                            "' width='90' height='90'></td><td>img/" + img + 
+                            "</td><td><a href='#' class='remove_image'>X</a></td></tr>");
+                    $('#thumbnailimage').attr('src', "img/" + img);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not save image: " + thrownError);
+                }
+            });
+        }
+        
+        //verwijderen van een afbeelding
+        $(document).on('click' , "#image_table a", function(event){
+            event.preventDefault();
+            var head = $(this).closest('tr')
+            var img = head.data('url');
+            var id = $('#image_table').data('id');
+            var upload_info = {};
+            upload_info['id'] = id;
+            upload_info['img'] = img;
+            
+            var save_product = {};
+            save_product['remove_image'] = upload_info;
+            console.log(save_product);
+            
+            $.ajax(
+            {    
+                url: 'application/models/save_product.php',
+                data: {save_product:JSON.stringify(save_product)},                                //set article amount to one.
+                type: 'post',
+                success: function(output) 
+                {
+                    alert(output);
+                    head.remove();
+                    console.log('It wants to remove');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("Could not remove spec: " + thrownError);
+                }
+            });
+            
+        });
+        
+        
         
 
     }
